@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Diseño Web Placeholder</title>
+	<style>
+		/* =======================================
+           COLORES ELEGIDOS
+           ======================================= */
+		:root {
+			--color-principal: #F8F9FA;
+			/* Blanco Suave (Fondo General) */
+			--color-secundario: #007BFF;
+			/* Azul Corporativo (Marca/Títulos) */
+			--color-acento: #FF6B00;
+			/* Naranja Vibrante (CTA/Destacados) */
+			--color-texto: #212529;
+			/* Gris Oscuro (Texto) */
+			--color-fondo-footer: #007BFF;
+			/* Usaremos el Azul para el fondo del footer */
+			--color-texto-footer: #FFFFFF;
+			/* Texto en blanco para contraste */
+		}
+
+		/* =======================================
+           ESTILOS GENERALES Y PLACEHOLDERS
+           ======================================= */
+		body {
+			font-family: sans-serif;
+			margin: 0;
+			background-color: var(--color-principal);
+			color: var(--color-texto);
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.content {
+			padding: 50px 20px;
+			flex-grow: 1;
+			text-align: center;
+		}
+
+		/* =======================================
+           ESTILOS DEL FOOTER
+           ======================================= */
+		.main-footer {
+			background-color: var(--color-fondo-footer);
+			color: var(--color-texto-footer);
+			padding: 40px 20px 20px;
+			box-shadow: 0 -4px 12px rgba(0, 123, 255, 0.2);
+		}
+
+		.footer-container {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		.footer-column {
+			width: 30%;
+			min-width: 250px;
+			margin-bottom: 20px;
+		}
+
+		/* -------------------------------------------
+           SEPARADOR COLUMNAS 2 y 3 (Títulos H4)
+           ------------------------------------------- */
+		.footer-column h4 {
+			font-size: 18px;
+			margin-top: 0;
+			margin-bottom: 15px;
+			color: var(--color-texto-footer);
+			border-bottom: 2px solid var(--color-acento);
+			/* LÍNEA NARANJA */
+			padding-bottom: 5px;
+		}
+
+		/* -------------------------------------------
+           SEPARADOR COLUMNA 1 (Logo)
+           ------------------------------------------- */
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+			color: var(--color-texto-footer);
+			/* Color corregido a blanco */
+
+			/* LÍNEA NARANJA APLICADA AQUÍ */
+			border-bottom: 2px solid var(--color-acento);
+			padding-bottom: 5px;
+
+			margin-bottom: 15px;
+			/* Espacio debajo del separador */
+			display: block;
+		}
+
+		.footer-column ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.footer-column ul li {
+			margin-bottom: 8px;
+		}
+
+		.footer-column a {
+			color: var(--color-texto-footer);
+			text-decoration: none;
+			opacity: 0.8;
+			transition: opacity 0.3s;
+		}
+
+		.footer-column a:hover {
+			opacity: 1;
+			color: var(--color-acento);
+		}
+
+		.social-icons a {
+			font-size: 20px;
+			margin-right: 15px;
+			color: var(--color-acento);
+		}
+
+		/* Barra de Derechos de Autor */
+		.footer-bottom {
+			margin-top: 20px;
+			padding-top: 15px;
+			border-top: 1px solid rgba(255, 255, 255, 0.2);
+			text-align: center;
+			font-size: 14px;
+			opacity: 0.7;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="content">
+		<h1>Título Principal de la Web</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+			magna aliqua. (Contenido de Relleno)</p>
+		<p>Aquí va el diseño de tu barra de navegación y el resto de secciones con "Lorem Ipsum" y "Placeholders".</p>
+	</div>
+
+	<footer class="main-footer">
+		<div class="footer-container">
+
+			<div class="footer-column">
+				<span class="logo">NOMBRE DEL SITIO</span>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Slogan breve.</p>
+				<p>Email: <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a></p>
+				<p>Teléfono: (123) 456-7890</p>
+			</div>
+
+			<div class="footer-column">
+				<h4>Navegación</h4>
+				<ul>
+					<li><a href="">Home</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="">Blog</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-column">
+				<h4>Información & Social</h4>
+				<ul>
+					<li><a href="">Aviso Legal</a></li>
+					<li><a href="">Política de Privacidad</a></li>
+					<li><a href="">Términos y Condiciones</a></li>
+				</ul>
+				<div class="social-icons">
+					<a href="">[FB]</a>
+					<a href="">[TW]</a>
+					<a href="">[LK]</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="footer-bottom">
+			© 2025 Nombre del Sitio. Todos los derechos reservados.
+		</div>
+	</footer>
+
+</body>
+
+</html>
