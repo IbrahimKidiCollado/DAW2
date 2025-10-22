@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Selectores CSS - Ejemplos Completos</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<header>
+		<h1>Ejemplos de Selectores CSS</h1>
+		<p class="subtitulo">Guía completa de todos los tipos de selectores</p>
+	</header>
+
+	<main>
+		<!-- Selector de Tipo -->
+		<section id="tipo">
+			<h2>1. Selector de Tipo (Element)</h2>
+			<p>Este párrafo usa selector de tipo</p>
+			<div>Este div también usa selector de tipo</div>
+		</section>
+
+		<!-- Selector de Clase -->
+		<section id="clase">
+			<h2>2. Selector de Clase (Class)</h2>
+			<p class="destacado">Este párrafo tiene clase "destacado"</p>
+			<div class="destacado">Este div también tiene clase "destacado"</div>
+			<span class="destacado especial">Este span tiene dos clases</span>
+		</section>
+
+		<!-- Selector de ID -->
+		<section id="id">
+			<h2>3. Selector de ID</h2>
+			<p id="parrafo-unico">Este párrafo tiene un ID único</p>
+			<div id="contenedor-especial">Este div tiene otro ID único</div>
+		</section>
+
+		<!-- Selector Universal -->
+		<section id="universal">
+			<h2>4. Selector Universal</h2>
+			<p>Aplica a todos los elementos dentro de esta sección</p>
+			<span>Este span también será afectado</span>
+		</section>
+
+		<!-- Selector de Atributo -->
+		<section id="atributo">
+			<h2>5. Selector de Atributo</h2>
+			<input type="text" placeholder="Campo de texto">
+			<input type="email" placeholder="Correo electrónico">
+			<input type="password" placeholder="Contraseña">
+			<a href="https://www.w3schools.com" target="_blank">Enlace externo</a>
+			<a href="#interno">Enlace interno</a>
+		</section>
+
+		<!-- Selectores de Pseudo-clase -->
+		<section id="pseudo-clase">
+			<h2>6. Selectores de Pseudo-clase</h2>
+			<button class="boton-hover">Pasa el mouse por encima</button>
+			<input type="text" class="input-focus" placeholder="Haz clic aquí">
+			<ul>
+				<li>Primer elemento de lista</li>
+				<li>Segundo elemento de lista</li>
+				<li>Tercer elemento de lista</li>
+				<li>Cuarto elemento de lista</li>
+			</ul>
+		</section>
+
+		<!-- Selectores de Pseudo-elemento -->
+		<section id="pseudo-elemento">
+			<h2>7. Selectores de Pseudo-elemento</h2>
+			<p class="primera-linea">Este párrafo tiene estilos especiales en la primera línea. Lorem ipsum dolor sit
+				amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</p>
+			<p class="primera-letra">Este párrafo tiene la primera letra especial.</p>
+		</section>
+
+		<!-- Selectores de Descendientes -->
+		<section id="descendientes">
+			<h2>8. Selectores de Descendientes</h2>
+			<div class="contenedor">
+				<p>Párrafo directo dentro del contenedor</p>
+				<div>
+					<p>Párrafo dentro de un div anidado</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Selectores de Hijos Directos -->
+		<section id="hijos-directos">
+			<h2>9. Selectores de Hijos Directos</h2>
+			<ul class="lista-principal">
+				<li>Elemento directo 1</li>
+				<li>Elemento directo 2
+					<ul>
+						<li>Elemento anidado 1</li>
+						<li>Elemento anidado 2</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+
+		<!-- Selectores de Hermanos Adyacentes -->
+		<section id="hermanos">
+			<h2>10. Selectores de Hermanos</h2>
+			<h3 class="titulo-seccion">Título de sección</h3>
+			<p>Este párrafo es hermano adyacente del título</p>
+			<p>Este párrafo es hermano general del título</p>
+			<div>Este div también es hermano general</div>
+		</section>
+
+		<!-- Selectores de Grupos -->
+		<section id="grupos">
+			<h2>11. Selectores de Grupos</h2>
+			<footer>
+				<p>Texto en el footer</p>
+				<span>Span en el footer</span>
+				<div>Div en el footer</div>
+			</footer>
+		</section>
+	</main>
+</body>
+
+</html>

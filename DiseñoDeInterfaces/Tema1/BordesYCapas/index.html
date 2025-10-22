@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio de bordes CSS3 y capas</title>
+	<style>
+		body {
+			position: relative;
+			margin: 0px;
+			min-height: 100vh;
+		}
+
+		.cabecera {
+			background-color: aqua;
+			width: 100%;
+			height: 100px;
+			position: absolute;
+			top: 0px;
+		}
+
+		.footer {
+			position: absolute;
+			bottom: 0px;
+			background-color: black;
+			height: 100px;
+			width: 100%;
+		}
+
+		.contenedores {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			overflow: hidden;
+			padding: 0px;
+			margin: 0px;
+		}
+
+		p {
+			margin: 0px;
+		}
+
+		.c1 {
+			top: 20%;
+			left: 30%;
+			box-shadow: 0 0 30px green;
+			border: 1px solid black;
+			background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.22, #d9bd34), color-stop(0.61, #6fff4d));
+
+		}
+
+
+		.c2 {
+			top: 50%;
+			left: 30%;
+			text-shadow: 2px 2px 2px #000;
+		}
+
+		.c3 {
+			top: 20%;
+			left: 55%;
+			box-shadow: 0 0 30px #a3ff0f;
+		}
+
+		.c4 {
+			top: 50%;
+			left: 55%;
+			background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, from(#b53131), color-stop(0.5, #8b98da), to(#aa0404));
+		}
+	</style>
+</head>
+
+<body>
+	<header class="cabecera"></header>
+	<main>
+		<div class="contenedores c1">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis velit iusto magni aliquid,
+				consequuntur porro deleniti nisi quibusdam, quos cum quaerat asperiores aspernatur ipsa pariatur, fugit
+				quas at ratione adipisci natus omnis. Similique accusantium amet repudiandae consequuntur expedita
+				eligendi. Numquam sit sapiente perspiciatis aliquid deserunt tempora iusto, necessitatibus quos.</p>
+		</div>
+		<div class="contenedores c2">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis velit iusto magni aliquid,
+				consequuntur porro deleniti nisi quibusdam, quos cum quaerat asperiores aspernatur ipsa pariatur, fugit
+				quas at ratione adipisci natus omnis. Similique accusantium amet repudiandae consequuntur expedita
+				eligendi. Numquam sit sapiente perspiciatis aliquid deserunt tempora iusto, necessitatibus quos.</p>
+		</div>
+		<div class="contenedores c3">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis velit iusto magni aliquid,
+				consequuntur porro deleniti nisi quibusdam, quos cum quaerat asperiores aspernatur ipsa pariatur, fugit
+				quas at ratione adipisci natus omnis. Similique accusantium amet repudiandae consequuntur expedita
+				eligendi. Numquam sit sapiente perspiciatis aliquid deserunt tempora iusto, necessitatibus quos.</p>
+		</div>
+		<div class="contenedores c4">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis velit iusto magni aliquid,
+				consequuntur porro deleniti nisi quibusdam, quos cum quaerat asperiores aspernatur ipsa pariatur, fugit
+				quas at ratione adipisci natus omnis. Similique accusantium amet repudiandae consequuntur expedita
+				eligendi. Numquam sit sapiente perspiciatis aliquid deserunt tempora iusto, necessitatibus quos.</p>
+		</div>
+	</main>
+	<footer class="footer"></footer>
+</body>
+
+</html>

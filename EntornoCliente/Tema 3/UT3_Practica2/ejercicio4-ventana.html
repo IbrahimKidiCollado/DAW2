@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 4 - Ventana Secundaria</title>
+</head>
+
+<body>
+	<h2>Ventana Secundaria</h2>
+
+	<input type="text" id="mensajeSecundaria" placeholder="Escribe algo para la principal">
+	<input type="button" value="Enviar a principal" onclick="enviarMensaje()">
+
+	<h3>Mensajes recibidos:</h3>
+	<div id="mensajes"></div>
+
+	<script>
+		function enviarMensaje() {
+			const mensaje = document.getElementById('mensajeSecundaria').value;
+			if (window.opener && !window.opener.closed) {
+				window.opener.recibirMensaje(mensaje); // enviar a principal
+			}
+			document.getElementById('mensajeSecundaria').value = '';
+		}
+
+		function recibirMensaje(mensaje) {
+			const div = document.getElementById('mensajes');
+			div.innerHTML += `<p>${mensaje}</p>`;
+		}
+	</script>
+</body>
+
+</html>

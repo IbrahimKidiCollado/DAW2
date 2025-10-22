@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 2</title>
+</head>
+
+<body>
+	<p id="unique"></p>
+	<script>
+		let num;
+		let operator;
+
+		function comprobacion() {
+			while (true) {
+				num = Number(prompt('Introduce un numero: '));
+
+				if (isNaN(num) || num === 0) {
+					alert('Numero introducido invalido...');
+					continue;
+				}
+				break;
+			}
+
+			while (true) {
+				operator = prompt('Introduce un operador (+ - / *): ');
+				switch (operator.trim()) {
+					case '+': return;
+					case '-': return;
+					case '*': return;
+					case '/': return;
+					default:
+						alert('Introduce uno de los 4 operadores posibles...');
+						break;
+				}
+			}
+		}
+
+		function factorial() {
+			let result = 0;
+			let cadena = '';
+
+			for (let i = num; i > 0; i--) {
+
+				let q = i === num ? ' ' : operator;
+
+				cadena += `${q} ${i} `;
+
+				switch (operator) {
+					case '+':
+						result += i;
+						break;
+					case '-':
+						result -= i;
+						break;
+					case '*':
+						if (i === num) result = i;
+						else result *= i;
+						break;
+					case '/':
+						if (i === num) result = i;
+						else result /= i;
+						break;
+				}
+			}
+			return `${cadena} = ${result}`;
+		}
+
+		const unique = document.getElementById('unique');
+		comprobacion();
+		unique.innerText = factorial();
+	</script>
+</body>
+
+</html>
