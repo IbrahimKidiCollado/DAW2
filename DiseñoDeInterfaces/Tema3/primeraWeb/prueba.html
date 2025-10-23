@@ -4,10 +4,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Diseño Web Placeholder</title>
+	<title>Servicios - Nombre del Sitio</title>
 	<style>
 		/* =======================================
-           COLORES ELEGIDOS
+           COLORES ELEGIDOS (Variables)
            ======================================= */
 		:root {
 			--color-principal: #F8F9FA;
@@ -18,175 +18,219 @@
 			/* Naranja Vibrante (CTA/Destacados) */
 			--color-texto: #212529;
 			/* Gris Oscuro (Texto) */
-			--color-fondo-footer: #007BFF;
-			/* Usaremos el Azul para el fondo del footer */
-			--color-texto-footer: #FFFFFF;
-			/* Texto en blanco para contraste */
 		}
 
 		/* =======================================
-           ESTILOS GENERALES Y PLACEHOLDERS
+           ESTILOS GENERALES
            ======================================= */
 		body {
 			font-family: sans-serif;
 			margin: 0;
 			background-color: var(--color-principal);
 			color: var(--color-texto);
-			min-height: 100vh;
-			display: flex;
-			flex-direction: column;
 		}
 
-		.content {
-			padding: 50px 20px;
-			flex-grow: 1;
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		h1 {
+			color: var(--color-secundario);
 			text-align: center;
+			padding-top: 40px;
+			margin-bottom: 40px;
+			font-size: 2.5em;
 		}
 
 		/* =======================================
-           ESTILOS DEL FOOTER
+           DISEÑO DE TARJETAS (FLEX Y GRIDS)
            ======================================= */
-		.main-footer {
-			background-color: var(--color-fondo-footer);
-			color: var(--color-texto-footer);
-			padding: 40px 20px 20px;
-			box-shadow: 0 -4px 12px rgba(0, 123, 255, 0.2);
+
+		/* Contenedor de las tarjetas de servicios (Grid para mejor layout) */
+		.services-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 30px;
+			margin-bottom: 60px;
 		}
 
-		.footer-container {
-			display: flex;
-			justify-content: space-around;
-			flex-wrap: wrap;
-			max-width: 1200px;
-			margin: 0 auto;
-		}
-
-		.footer-column {
-			width: 30%;
-			min-width: 250px;
-			margin-bottom: 20px;
-		}
-
-		/* -------------------------------------------
-           SEPARADOR COLUMNAS 2 y 3 (Títulos H4)
-           ------------------------------------------- */
-		.footer-column h4 {
-			font-size: 18px;
-			margin-top: 0;
-			margin-bottom: 15px;
-			color: var(--color-texto-footer);
-			border-bottom: 2px solid var(--color-acento);
-			/* LÍNEA NARANJA */
-			padding-bottom: 5px;
-		}
-
-		/* -------------------------------------------
-           SEPARADOR COLUMNA 1 (Logo)
-           ------------------------------------------- */
-		.logo {
-			font-size: 24px;
-			font-weight: bold;
-			color: var(--color-texto-footer);
-			/* Color corregido a blanco */
-
-			/* LÍNEA NARANJA APLICADA AQUÍ */
-			border-bottom: 2px solid var(--color-acento);
-			padding-bottom: 5px;
-
-			margin-bottom: 15px;
-			/* Espacio debajo del separador */
-			display: block;
-		}
-
-		.footer-column ul {
-			list-style: none;
-			padding: 0;
-		}
-
-		.footer-column ul li {
-			margin-bottom: 8px;
-		}
-
-		.footer-column a {
-			color: var(--color-texto-footer);
-			text-decoration: none;
-			opacity: 0.8;
-			transition: opacity 0.3s;
-		}
-
-		.footer-column a:hover {
-			opacity: 1;
-			color: var(--color-acento);
-		}
-
-		.social-icons a {
-			font-size: 20px;
-			margin-right: 15px;
-			color: var(--color-acento);
-		}
-
-		/* Barra de Derechos de Autor */
-		.footer-bottom {
-			margin-top: 20px;
-			padding-top: 15px;
-			border-top: 1px solid rgba(255, 255, 255, 0.2);
+		.service-card {
+			background-color: white;
+			padding: 30px;
+			border-radius: 10px;
 			text-align: center;
-			font-size: 14px;
-			opacity: 0.7;
+			/* Sombra sutil azul aplicada a la tarjeta */
+			box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+			transition: transform 0.3s;
+		}
+
+		.service-card:hover {
+			transform: translateY(-5px);
+			/* Efecto de elevación al pasar el ratón */
+		}
+
+		.service-card .icon {
+			font-size: 3em;
+			color: var(--color-acento);
+			/* Ícono en color de acento */
+			margin-bottom: 15px;
+		}
+
+		.service-card h3 {
+			color: var(--color-secundario);
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+
+		/* =======================================
+           ESTILO DEL BOTÓN (CTA)
+           ======================================= */
+		.btn-cta {
+			background-color: var(--color-acento);
+			color: white;
+			text-decoration: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-weight: bold;
+			display: inline-block;
+			margin-top: 15px;
+			/* Sombra sutil con color de acento para el botón */
+			box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
+			transition: background-color 0.3s;
+		}
+
+		.btn-cta:hover {
+			background-color: #e65c00;
+			/* Naranja ligeramente más oscuro al pasar el ratón */
+		}
+
+		/* =======================================
+        SECCIÓN DE PRECIOS (Si aplica)
+           ======================================= */
+		.pricing-section h2 {
+			color: var(--color-texto);
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.pricing-plans {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			flex-wrap: wrap;
+			/* Para que bajen en pantallas pequeñas */
+		}
+
+		.plan-card {
+			background-color: white;
+			padding: 20px;
+			border-radius: 8px;
+			text-align: center;
+			width: 250px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		.plan-card.highlight {
+			border: 3px solid var(--color-acento);
+			/* Resaltar plan recomendado */
+			box-shadow: 0 8px 15px rgba(255, 107, 0, 0.3);
+			transform: scale(1.05);
+		}
+
+		.plan-card h4 {
+			color: var(--color-secundario);
+		}
+
+		.price {
+			font-size: 2em;
+			font-weight: bold;
+			color: var(--color-acento);
+			margin: 10px 0;
 		}
 	</style>
 </head>
 
 <body>
 
-	<div class="content">
-		<h1>Título Principal de la Web</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-			magna aliqua. (Contenido de Relleno)</p>
-		<p>Aquí va el diseño de tu barra de navegación y el resto de secciones con "Lorem Ipsum" y "Placeholders".</p>
-	</div>
+	<div class="container">
+		<h1>Nuestros Servicios Digitales</h1>
 
-	<footer class="main-footer">
-		<div class="footer-container">
+		<div class="services-grid">
 
-			<div class="footer-column">
-				<span class="logo">NOMBRE DEL SITIO</span>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Slogan breve.</p>
-				<p>Email: <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a></p>
-				<p>Teléfono: (123) 456-7890</p>
+			<div class="service-card">
+				<div class="icon">⚙️</div>
+				<h3>Desarrollo Web</h3>
+				<p>Creamos sitios web modernos, rápidos y completamente optimizados para móviles y SEO.</p>
+				<a href="#" class="btn-cta">Ver Detalles</a>
 			</div>
 
-			<div class="footer-column">
-				<h4>Navegación</h4>
-				<ul>
-					<li><a href="">Home</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">Services</a></li>
-					<li><a href="">Blog</a></li>
-					<li><a href="">Contact</a></li>
-				</ul>
+			<div class="service-card">
+				<div class="icon">📈</div>
+				<h3>Marketing Digital</h3>
+				<p>Estrategias de contenido y posicionamiento para impulsar tu visibilidad en línea.</p>
+				<a href="#" class="btn-cta">Ver Detalles</a>
 			</div>
 
-			<div class="footer-column">
-				<h4>Información & Social</h4>
-				<ul>
-					<li><a href="">Aviso Legal</a></li>
-					<li><a href="">Política de Privacidad</a></li>
-					<li><a href="">Términos y Condiciones</a></li>
-				</ul>
-				<div class="social-icons">
-					<a href="">[FB]</a>
-					<a href="">[TW]</a>
-					<a href="">[LK]</a>
+			<div class="service-card">
+				<div class="icon">🎨</div>
+				<h3>Diseño UX/UI</h3>
+				<p>Diseños enfocados en la experiencia del usuario para maximizar la conversión y usabilidad.</p>
+				<a href="#" class="btn-cta">Ver Detalles</a>
+			</div>
+
+			<div class="service-card">
+				<div class="icon">☁️</div>
+				<h3>Consultoría Cloud</h3>
+				<p>Te ayudamos a migrar tus sistemas a la nube con soluciones seguras y escalables.</p>
+				<a href="#" class="btn-cta">Ver Detalles</a>
+			</div>
+
+		</div>
+
+		<div class="pricing-section">
+			<h2>Planes de Colaboración</h2>
+			<div class="pricing-plans">
+
+				<div class="plan-card">
+					<h4>Plan Básico</h4>
+					<div class="price">€99/mes</div>
+					<p>Ideal para startups y proyectos pequeños.</p>
+					<ul>
+						<li>Característica 1</li>
+						<li>Característica 2</li>
+					</ul>
+					<a href="#" class="btn-cta">Comenzar</a>
 				</div>
+
+				<div class="plan-card highlight">
+					<h4>Plan Profesional</h4>
+					<div class="price">€249/mes</div>
+					<p>El más popular, para empresas en crecimiento.</p>
+					<ul>
+						<li>Todas las Básicas</li>
+						<li>Característica Pro 1</li>
+						<li>Característica Pro 2</li>
+					</ul>
+					<a href="#" class="btn-cta">¡Contratar!</a>
+				</div>
+
+				<div class="plan-card">
+					<h4>Plan Premium</h4>
+					<div class="price">€499/mes</div>
+					<p>Solución completa para grandes corporaciones.</p>
+					<ul>
+						<li>Todas las Pro</li>
+						<li>Soporte 24/7</li>
+					</ul>
+					<a href="#" class="btn-cta">Contáctanos</a>
+				</div>
+
 			</div>
-
 		</div>
 
-		<div class="footer-bottom">
-			© 2025 Nombre del Sitio. Todos los derechos reservados.
-		</div>
-	</footer>
+	</div>
 
 </body>
 
