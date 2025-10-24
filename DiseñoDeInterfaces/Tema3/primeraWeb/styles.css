@@ -11,7 +11,11 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+}
 
+a:hover {
+	color: orange;
+	transition: 0.1s;
 }
 
 p {
@@ -97,13 +101,6 @@ footer textarea {
 	resize: none;
 }
 
-footer form input:last-child {
-	background-color:#007BFF;
-	color: white;
-	border: none;
-	border-radius: 8px;
-}
-
 footer ul li {
 	list-style: none;
 	text-decoration: none;
@@ -153,13 +150,13 @@ footer div img {
 	gap: 20px;
 	flex-flow: row wrap;
 	width: 90%;
-	max-width: 1200px;
+	max-width: 100%;
 	justify-content: space-evenly;
 }
 
 .services-container main {
 	width: 250px;
-	height: fit-content;
+	height: 300px;
 	max-width: 300px;
 	display: flex;
 	flex-direction: column;
@@ -201,7 +198,7 @@ footer div img {
 }
 
 button {
-	margin-top: 20px;
+	margin-top: auto;
 	padding: 10px;
 	color: white;
 	font-weight:bold;
@@ -211,4 +208,86 @@ button {
 	border:none;
 	width: 150px;
 	box-shadow: 0 4px 12px rgba(255, 106, 0, 0.527);
+	margin-bottom: 20px;
+}
+
+main div form {
+	display: flex;
+	flex-direction: column;
+}
+
+.contacto-container {
+	display: flex;
+	gap: 30px;
+	justify-content: space-evenly;
+	flex-flow: row wrap;
+	max-width: 100%;
+}
+
+.contacto-container div {
+	width: 400px;
+}
+
+.contacto-container h3 {
+	font-size: 25px;
+}
+
+.contacto-container form label {
+	margin: 20px 0 5px 0;
+	font-weight: 600;
+}
+
+.contacto-container form textarea {
+	border-radius: 5px;
+	border: 1px solid #007BFF;
+	resize: vertical;
+	margin-bottom: 20px;
+}
+
+.contacto-container form input {
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #007BFF;
+}
+
+.contacto-container div div {
+	display: flex;
+	align-items: center;
+}
+
+.contacto-container div div:first-child {
+	font-size: 24px;
+	width: 50px;
+}
+
+.contacto-container div div span {
+	font-weight: bold;
+}
+
+.contacto-container div div div {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	align-items: start;
+	vertical-align: middle;
+}
+
+.detalles-contacto {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+form input:last-child {
+	margin-top: auto;
+	padding: 10px;
+	color: white;
+	font-weight:bold;
+	font-size: 16px;
+	background-color: orange;
+	border-radius: 5px;
+	border:none;
+	width: 100%;
+	box-shadow: 0 4px 12px rgba(255, 106, 0, 0.527);
+	margin-bottom: 20px;
 }

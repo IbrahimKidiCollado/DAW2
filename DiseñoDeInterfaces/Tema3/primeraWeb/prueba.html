@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Servicios - Nombre del Sitio</title>
+	<title>Contacto - Nombre del Sitio</title>
 	<style>
 		/* =======================================
            COLORES ELEGIDOS (Variables)
@@ -45,109 +45,121 @@
 		}
 
 		/* =======================================
-           DISEÑO DE TARJETAS (FLEX Y GRIDS)
+           LAYOUT DE CONTACTO (FLEXBOX de 2 Columnas)
            ======================================= */
-
-		/* Contenedor de las tarjetas de servicios (Grid para mejor layout) */
-		.services-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-			gap: 30px;
-			margin-bottom: 60px;
+		.contact-layout {
+			display: flex;
+			gap: 40px;
+			flex-wrap: wrap;
+			/* Permite que las columnas se apilen en móvil */
+			padding-bottom: 50px;
 		}
 
-		.service-card {
+		/* 60% para el formulario, 40% para la información */
+		.contact-form-section {
+			flex: 3;
+			min-width: 300px;
+			/* Asegura que no se encoja demasiado */
 			background-color: white;
 			padding: 30px;
-			border-radius: 10px;
-			text-align: center;
-			/* Sombra sutil azul aplicada a la tarjeta */
-			box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-			transition: transform 0.3s;
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			/* Sombra genérica */
 		}
 
-		.service-card:hover {
-			transform: translateY(-5px);
-			/* Efecto de elevación al pasar el ratón */
-		}
-
-		.service-card .icon {
-			font-size: 3em;
-			color: var(--color-acento);
-			/* Ícono en color de acento */
-			margin-bottom: 15px;
-		}
-
-		.service-card h3 {
-			color: var(--color-secundario);
-			margin-top: 0;
-			margin-bottom: 10px;
+		.contact-info-section {
+			flex: 2;
+			min-width: 250px;
 		}
 
 		/* =======================================
-           ESTILO DEL BOTÓN (CTA)
+           ESTILOS DE FORMULARIO
            ======================================= */
-		.btn-cta {
-			background-color: var(--color-acento);
-			color: white;
-			text-decoration: none;
-			padding: 10px 20px;
-			border-radius: 5px;
+		label {
+			display: block;
+			margin-bottom: 5px;
 			font-weight: bold;
-			display: inline-block;
-			margin-top: 15px;
-			/* Sombra sutil con color de acento para el botón */
-			box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
-			transition: background-color 0.3s;
+			color: var(--color-texto);
 		}
 
-		.btn-cta:hover {
+		input[type="text"],
+		input[type="email"],
+		textarea {
+			width: 100%;
+			padding: 12px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			/* Sombra interior sutil para simular hundimiento */
+			box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+		}
+
+		textarea {
+			resize: vertical;
+			min-height: 150px;
+		}
+
+		/* Estilo para el botón de envío (CTA) */
+		.btn-submit {
+			background-color: var(--color-acento);
+			/* Naranja Vibrante */
+			color: white;
+			padding: 12px 25px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.1em;
+			cursor: pointer;
+			width: 100%;
+			/* Sombra de acento para destacar la acción */
+			box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
+			transition: background-color 0.3s, transform 0.3s;
+		}
+
+		.btn-submit:hover {
 			background-color: #e65c00;
-			/* Naranja ligeramente más oscuro al pasar el ratón */
+			transform: translateY(-2px);
+			/* Ligero efecto de elevación al hacer hover */
 		}
 
 		/* =======================================
-        SECCIÓN DE PRECIOS (Si aplica)
+           ESTILOS DE INFORMACIÓN
            ======================================= */
-		.pricing-section h2 {
-			color: var(--color-texto);
-			text-align: center;
-			margin-bottom: 30px;
-		}
-
-		.pricing-plans {
+		.info-item {
 			display: flex;
-			justify-content: center;
-			gap: 20px;
-			flex-wrap: wrap;
-			/* Para que bajen en pantallas pequeñas */
+			align-items: center;
+			margin-bottom: 25px;
 		}
 
-		.plan-card {
-			background-color: white;
-			padding: 20px;
+		.info-item .icon {
+			font-size: 1.5em;
+			color: var(--color-acento);
+			margin-right: 15px;
+		}
+
+		.map-placeholder {
+			height: 250px;
+			background-color: #ddd;
+			/* Fondo gris para simular un mapa */
 			border-radius: 8px;
 			text-align: center;
-			width: 250px;
-			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			line-height: 250px;
+			/* Centra el texto verticalmente */
+			color: var(--color-texto);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		}
 
-		.plan-card.highlight {
-			border: 3px solid var(--color-acento);
-			/* Resaltar plan recomendado */
-			box-shadow: 0 8px 15px rgba(255, 107, 0, 0.3);
-			transform: scale(1.05);
-		}
+		/* Media Query para móvil: Apila las columnas */
+		@media (max-width: 768px) {
+			.contact-layout {
+				flex-direction: column;
+				gap: 20px;
+			}
 
-		.plan-card h4 {
-			color: var(--color-secundario);
-		}
-
-		.price {
-			font-size: 2em;
-			font-weight: bold;
-			color: var(--color-acento);
-			margin: 10px 0;
+			.contact-form-section,
+			.contact-info-section {
+				flex: 100%;
+			}
 		}
 	</style>
 </head>
@@ -155,81 +167,65 @@
 <body>
 
 	<div class="container">
-		<h1>Nuestros Servicios Digitales</h1>
+		<h1>Pongámonos en Contacto</h1>
+		<p style="text-align:center; margin-bottom: 30px;">Envíanos un mensaje o encuentra nuestra información de
+			contacto a continuación.</p>
 
-		<div class="services-grid">
+		<div class="contact-layout">
 
-			<div class="service-card">
-				<div class="icon">⚙️</div>
-				<h3>Desarrollo Web</h3>
-				<p>Creamos sitios web modernos, rápidos y completamente optimizados para móviles y SEO.</p>
-				<a href="#" class="btn-cta">Ver Detalles</a>
+			<div class="contact-form-section">
+				<h2>Envíanos un Mensaje</h2>
+				<form action="#" method="POST">
+
+					<label for="name">Nombre Completo</label>
+					<input type="text" id="name" name="name" required>
+
+					<label for="email">Correo Electrónico</label>
+					<input type="email" id="email" name="email" required>
+
+					<label for="subject">Asunto</label>
+					<input type="text" id="subject" name="subject">
+
+					<label for="message">Tu Mensaje</label>
+					<textarea id="message" name="message" required></textarea>
+
+					<button type="submit" class="btn-submit">Enviar Mensaje</button>
+				</form>
 			</div>
 
-			<div class="service-card">
-				<div class="icon">📈</div>
-				<h3>Marketing Digital</h3>
-				<p>Estrategias de contenido y posicionamiento para impulsar tu visibilidad en línea.</p>
-				<a href="#" class="btn-cta">Ver Detalles</a>
-			</div>
+			<div class="contact-info-section">
+				<h2>Detalles de Contacto</h2>
 
-			<div class="service-card">
-				<div class="icon">🎨</div>
-				<h3>Diseño UX/UI</h3>
-				<p>Diseños enfocados en la experiencia del usuario para maximizar la conversión y usabilidad.</p>
-				<a href="#" class="btn-cta">Ver Detalles</a>
-			</div>
+				<div class="info-item">
+					<span class="icon">📍</span>
+					<div>
+						<strong>Nuestra Oficina</strong><br>
+						Calle Ficticia, 123 - Ciudad Web, W3B
+					</div>
+				</div>
 
-			<div class="service-card">
-				<div class="icon">☁️</div>
-				<h3>Consultoría Cloud</h3>
-				<p>Te ayudamos a migrar tus sistemas a la nube con soluciones seguras y escalables.</p>
-				<a href="#" class="btn-cta">Ver Detalles</a>
+				<div class="info-item">
+					<span class="icon">📧</span>
+					<div>
+						<strong>Email de Soporte</strong><br>
+						<a href="mailto:info@ejemplo.com" style="color: var(--color-texto);">info@ejemplo.com</a>
+					</div>
+				</div>
+
+				<div class="info-item">
+					<span class="icon">📞</span>
+					<div>
+						<strong>Llámanos</strong><br>
+						+34 555 123 456
+					</div>
+				</div>
+
+				<div class="map-placeholder">
+					[ Aquí va el mapa incrustado ]
+				</div>
 			</div>
 
 		</div>
-
-		<div class="pricing-section">
-			<h2>Planes de Colaboración</h2>
-			<div class="pricing-plans">
-
-				<div class="plan-card">
-					<h4>Plan Básico</h4>
-					<div class="price">€99/mes</div>
-					<p>Ideal para startups y proyectos pequeños.</p>
-					<ul>
-						<li>Característica 1</li>
-						<li>Característica 2</li>
-					</ul>
-					<a href="#" class="btn-cta">Comenzar</a>
-				</div>
-
-				<div class="plan-card highlight">
-					<h4>Plan Profesional</h4>
-					<div class="price">€249/mes</div>
-					<p>El más popular, para empresas en crecimiento.</p>
-					<ul>
-						<li>Todas las Básicas</li>
-						<li>Característica Pro 1</li>
-						<li>Característica Pro 2</li>
-					</ul>
-					<a href="#" class="btn-cta">¡Contratar!</a>
-				</div>
-
-				<div class="plan-card">
-					<h4>Plan Premium</h4>
-					<div class="price">€499/mes</div>
-					<p>Solución completa para grandes corporaciones.</p>
-					<ul>
-						<li>Todas las Pro</li>
-						<li>Soporte 24/7</li>
-					</ul>
-					<a href="#" class="btn-cta">Contáctanos</a>
-				</div>
-
-			</div>
-		</div>
-
 	</div>
 
 </body>
