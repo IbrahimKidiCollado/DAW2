@@ -6,9 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
-			display: flex;
-			width: 100%;
-			justify-content: space-evenly;
 			background-color: grey;
 		}
 
@@ -21,10 +18,13 @@
 			list-style: none;
 		}
 
+		.container {
+			display: flex;
+			justify-content: space-evenly;
+		}
+
 		div {
-			background-color: pink;
 			border-radius: 8px;
-			width: 200px;
 			text-align: center;
 			height: fit-content;
 		}
@@ -33,58 +33,81 @@
 </head>
 
 <body>
-	<div id="este">
-		<h2>Cataluña</h2>
-		<ul>
-			<li>Barcelona</li>
-			<li>Gerona</li>
-			<li>Lerida</li>
-			<li>Tarragona</li>
-		</ul>
-	</div>
-	<div id="norte">
-		<h2>Galicia</h2>
-		<ul>
-			<li>La Coruña</li>
-			<li>Lugo</li>
-			<li>Orense</li>
-			<li>Pontevedra</li>
-		</ul>
-	</div>
-	<div id="sur">
-		<h2>Andalucia</h2>
-		<ul>
-			<li>Almeria</li>
-			<li>Cadiz</li>
-			<li>Cordoba</li>
-			<li>Granada</li>
-			<li>Huelva</li>
-			<li>Jaen</li>
-			<li>Malaga</li>
-			<li>Sevilla</li>
-		</ul>
-	</div>
-	<div id="oeste">
-		<h2>Extremadura</h2>
-		<ul>
-			<li>Badajoz</li>
-			<li>Caceres</li>
-		</ul>
+	<div class="container">
+		<div id="este">
+			<h2>Cataluña</h2>
+			<ul>
+				<li>Barcelona</li>
+				<li>Gerona</li>
+				<li>Lerida</li>
+				<li>Tarragona</li>
+			</ul>
+		</div>
+		<div id="norte">
+			<h2>Galicia</h2>
+			<ul>
+				<li>La Coruña</li>
+				<li>Lugo</li>
+				<li>Orense</li>
+				<li>Pontevedra</li>
+			</ul>
+		</div>
+		<div id="sur">
+			<h2>Andalucia</h2>
+			<ul>
+				<li>Almeria</li>
+				<li>Cadiz</li>
+				<li>Cordoba</li>
+				<li>Granada</li>
+				<li>Huelva</li>
+				<li>Jaen</li>
+				<li>Malaga</li>
+				<li>Sevilla</li>
+			</ul>
+		</div>
+		<div id="oeste">
+			<h2>Extremadura</h2>
+			<ul>
+				<li>Badajoz</li>
+				<li>Caceres</li>
+			</ul>
+		</div>
 	</div>
 	<script>
 		const etiquetasH2 = document.getElementsByTagName("h2");
 
 		for (let i = 0; i < etiquetasH2.length; i++) {
-			etiquetasH2[i].addEventListener("click", recorrerAlante)
+			etiquetasH2[i].addEventListener("click", recorrerAdelante)
 		}
 
-
-		function recorrerAlante(event) {
+		function recorrerAdelante(event) {
 			const h2Pulsado = event.currentTarget;
-
-			let text
-			console.log(h2Pulsado);
+			let texto = `Has elegido la comunidad autonoma de ${h2Pulsado.textContent}.`;
+			texto += "Se encuentra en el " + h2Pulsado.parentNode.id;
+			texto += " El numero de provicias es: " + recorrerHermanos(h2Pulsado)[1] + ".";
+			texto += " Las provincias son: " + recorrerHijos(recorrerHermanos(h2Pulsado)[0]) + ".";
+			const div = document.createElement("div");
+			const p = document.createElement("p");
+			p.textContent = texto;
+			div.append(p);
+			document.body.append(div);
+			console.log(texto);
 		}
+
+		function recorrerHermanos(h2) {
+			const ul = h2.nextElementSibling;
+			const li = ul.getElementsByTagName("li");
+			return [ul, li.length];
+		}
+
+		function recorrerHijos(ul) {
+			ul.style.display = "block";
+			const li = ul.getElementsByTagName("li");
+			const liContent = Array.from(li).map((l) => l.textContent);
+			return liContent.join(", ");
+		}
+
+
 	</script>
 </body>
 
