@@ -24,6 +24,8 @@ CREATE DATABASE IF NOT EXISTS Empresa;
 -- Base de datos: `crud_empleados`
 --
 
+DELETE FROM empleados;
+
 -- --------------------------------------------------------
 
 --
