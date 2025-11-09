@@ -1,0 +1,5 @@
+Laptop Ultraligera;1250.99
+Smartphone X Pro;899.00
+Auriculares Inalámbricos;149.95
+Monitor Curvo 27";345.50
+Teclado Mecánico RGB;95.00

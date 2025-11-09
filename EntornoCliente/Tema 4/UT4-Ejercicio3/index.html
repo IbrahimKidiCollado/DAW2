@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+	<title>Desplegable de productos</title>
+</head>
+
+<body>
+	<div class="contenedor contenedorArchivo" id="contenedorArchivo">
+		<label for="archivo">Selecciona el archivo de datos:</label>
+		<input type="file" name="archivo" id="archivo" accept=".txt">
+	</div>
+
+	<div class="contenedorProductos contenedor" id="contenedorProductos">
+		<label for="productos">Elige un producto:</label>
+		<select name="productos" id="productos"></select>
+		<button id="elegir">Elegir</button>
+		<p id="precio"></p>
+	</div>
+
+</body>
+
+</html>
