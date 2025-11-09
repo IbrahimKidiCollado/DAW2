@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+	height: fit-content;
+    background-color: pink;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+}
+
+.contenedorProductos {
+    display: none;
+	text-align: center;
+}
+
+.contenedorArchivo {
+    display: block;
+	width: fit-content;
+	height: fit-content;
+}
+
+button {
+    display: block;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+button:hover {
+    background-color: #973b97;
+	color: white;
+}
+p {
+	display: none;
+}
