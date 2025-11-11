@@ -1,0 +1,77 @@
+body {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	align-items: center;
+	overflow: hidden;
+	font-family: arial;
+}
+
+.main-container {
+	background-color: orange;
+	width: 400;
+	height: fit-content;
+	padding: 20px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h2 {
+	text-align: center;
+	color: rgb(19, 127, 235);
+}
+
+.buttons-container {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+button {
+	background-color: #4A90E2;
+	color: white;
+	width: 120px;
+	height: 80px;
+	border: none;
+	border-radius: 8px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 1.1rem;
+	font-weight: 600;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	display: inline-block;
+	text-decoration: none;
+}
+
+button:hover {
+	background-color: #6CACE4;
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+	transform: translateY(-2px);
+}
+
+.seleccionado {
+	background-color: #6CACE4;
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+	transform: translateY(-2px);
+}
+
+.botonEnviar {
+	height: 40px;
+	margin-top: 30px;
+}
+
+button:active {
+	background-color: #357ABD;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	transform: translateY(0);
+}
+
+p {
+	text-align: center;
+	color: rgb(19, 127, 235);
+	margin-bottom: 20px;
+}
