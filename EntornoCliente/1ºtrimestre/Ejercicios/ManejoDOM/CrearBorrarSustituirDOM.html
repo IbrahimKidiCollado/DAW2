@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.container {
+			height: fit-content;
+			width: 600px;
+			margin: 0 auto;
+			margin-top: 200px;
+			background-color: rgb(229, 186, 245);
+			border-radius: 10px;
+			padding: 20px;
+		}
+
+		textarea {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 30px;
+			resize: none;
+		}
+
+		.buttonContainer {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+		}
+
+		.botones {
+			background-color: rgb(226, 163, 223);
+			border-radius: 5px;
+			color: blue;
+			border: 1px solid blue;
+		}
+
+		.botones:hover {
+			transform: scale(1.05);
+		}
+
+		.container2 {
+			height: fit-content;
+			display: none;
+			width: 600px;
+			margin: 0 auto;
+			margin-top: 20px;
+			background-color: rgb(229, 186, 245);
+			border-radius: 10px;
+			padding: 20px;
+		}
+
+		p {
+			background-color: white;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		img {
+			width: 100px;
+			height: 100px;
+			display: block;
+			margin: 0 auto;
+		}
+	</style>
+	<title>EJERCICIO 2</title>
+</head>
+
+<body>
+	<script>
+		const textArea = document.createElement('textarea');
+		const div = document.createElement('div');
+
+		document.body.append(div);
+		div.setAttribute('class', 'container');
+		textArea.setAttribute('id', 'texto');
+		textArea.setAttribute('rows', '10');
+		textArea.setAttribute('cols', '50');
+		div.append(textArea);
+
+		const div1 = document.createElement('div');
+		div1.setAttribute('class', "buttonContainer");
+		div.append(div1);
+
+		const botones = ["CrearParrafo", "CrearImagen", "BorrarUltimo", "BorrarPrimero", "SustituirPrimeroVacio"];
+		for (let i = 1; i <= 5; i++) {
+			const button = document.createElement('button');
+			button.innerText = botones[i - 1];
+			button.setAttribute('id', botones[i - 1]);
+			button.setAttribute('class', "botones");
+			div1.append(button);
+		}
+
+		const div2 = document.createElement('div');
+		document.body.append(div2);
+		div2.setAttribute('class', 'container2');
+
+		function creaParrafo() {
+			const textAreaId = document.getElementById("texto");
+
+			const p = document.createElement('p');
+			p.setAttribute('id', 'parrafo');
+			p.innerHTML = textAreaId.value;
+			p.setAttribute("class", 'miClase');
+			div2.append(p);
+
+			if (div2.children.length > 0) div2.style.display = 'block';
+			textAreaId.value = '';
+		}
+
+		function crearImagen() {
+			const rutaImagen = prompt("Introduzca la url de la imagen: ");
+			const imagen = document.createElement('img');
+			imagen.setAttribute('src', rutaImagen);
+			div2.append(imagen);
+			if (div2.children.length > 0) div2.style.display = "block";
+		}
+
+		function borrarUltimo() {
+			const ultimoElementoDiv2 = div2.lastElementChild;
+			if (ultimoElementoDiv2) div2.removeChild(ultimoElementoDiv2);
+			if (div2.children.length === 0) div2.style.display = "none";
+		}
+
+		function borrarPrimero() {
+			const primerElementoDiv2 = div2.firstElementChild;
+			if (primerElementoDiv2) div2.removeChild(primerElementoDiv2);
+			if (div2.children.length === 0) div2.style.display = "none";
+		}
+
+		function sustituirPrimeroVacio() {
+			const p = document.createElement("p");
+			p.innerText = "Vacío";
+			const primerElemento = div2.firstElementChild;
+			div2.replaceChild(p, primerElemento);
+		}
+
+		document.getElementById("CrearParrafo").addEventListener("click", creaParrafo);
+		document.getElementById("CrearImagen").addEventListener("click", crearImagen);
+		document.getElementById("BorrarUltimo").addEventListener("click", borrarUltimo);
+		document.getElementById("BorrarPrimero").addEventListener("click", borrarPrimero);
+		document.getElementById("SustituirPrimeroVacio").addEventListener("click", sustituirPrimeroVacio);
+
+	</script>
+</body>
+
+</html>

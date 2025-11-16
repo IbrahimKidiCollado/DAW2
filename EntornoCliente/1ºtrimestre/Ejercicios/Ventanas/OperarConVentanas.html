@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 3</title>
+</head>
+
+<body>
+
+	<script>
+		function abrirVentana() {
+			let ventana = window.open('ejercicio3-ventana.html', '_blank', 'height=600,width=400,left=0,top=0,resizable=NO,scrollbars=yes');
+			ventana.document.write(`
+				<h3>Ejemplo de Ventana Nueva</h3>
+				<p>URL: ${ventana.location.href}</p>
+				<p>Protocolo utilizado: ${ventana.location.protocol}</p>
+				<p>Nombre en codigo del navegador: ${ventana.navigator.appCodeName}</p>
+				<p>Java ${ventana.navigator.javaEnabled() ? 'SI' : 'NO'} disponible en esta ventana</p>
+			`)
+		}
+
+
+		let nombreApellidos = prompt('Nombre y apellidos');
+		let diaNac = parseInt(prompt('Dia de nacimiento'));
+		let mesNac = parseInt(prompt('Mes de nacimiento'));
+		let añoNac = parseInt(prompt('Año de nacimiento'));
+
+		function calcularEdadExacta(dia, mes, año) {
+			let hoy = new Date();
+			let nacimiento = new Date(año, mes - 1, dia);
+
+			let edad = hoy.getFullYear() - nacimiento.getFullYear();
+			let cumpleEsteAño = new Date(hoy.getFullYear(), mes - 1, dia);
+			if (hoy < cumpleEsteAño) {
+				edad--;
+			}
+
+			return edad;
+		}
+
+		function calcularDiaNacimiento(dia, mes, año) {
+			let fechaNacimiento = new Date(año, mes - 1, dia);
+			let diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+			let diaSemana = fechaNacimiento.getDay();
+
+			return diasSemana[diaSemana];
+		}
+
+		function getRandom(n) {
+			return Math.floor(Math.random() * n);
+		}
+
+		document.write(`
+			<h1>TAREA DWEC03</h1>
+			<p>Buenas dias ${nombreApellidos}</p>
+			<p>Tu nombre ${nombreApellidos.length} caracteres incluidos espacios</p>
+			<p>La primera letra A de tu nombre está en la posición: ${nombreApellidos.indexOf('a')}</p>
+			<p>La última letra A de tu nombre está en la posición: ${nombreApellidos.lastIndexOf('a')}</p>
+			<p>Tu nombre menos las 3 primeras letras es: ${nombreApellidos.slice(3)}</p>
+			<p>Tu nombre todo en mayúsculas es: ${nombreApellidos.toUpperCase()}</p>
+			<p>Tu edad es: ${calcularEdadExacta(diaNac, mesNac, añoNac)} años.</p>
+			<p>Naciste un feliz ${calcularDiaNacimiento(diaNac, mesNac, añoNac)} del año ${añoNac}.</p>
+			<p>El coseno de 180 es: ${Math.cos(180 * Math.PI / 180)}</p>
+			<p>El número mayor de (34,67,23,75,35,19) es: ${Math.max(34, 67, 23, 75, 35, 19)}</p>
+			<p>Ejemplo de número al azar: ${getRandom(50)}</p>
+		`);
+
+		abrirVentana();
+
+	</script>
+</body>
+
+</html>
