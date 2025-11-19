@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contacto - Nombre del Sitio</title>
+	<style>
+		/* =======================================
+           COLORES ELEGIDOS (Variables)
+           ======================================= */
+		:root {
+			--color-principal: #F8F9FA;
+			/* Blanco Suave (Fondo General) */
+			--color-secundario: #007BFF;
+			/* Azul Corporativo (Marca/Títulos) */
+			--color-acento: #FF6B00;
+			/* Naranja Vibrante (CTA/Destacados) */
+			--color-texto: #212529;
+			/* Gris Oscuro (Texto) */
+		}
+
+		/* =======================================
+           ESTILOS GENERALES
+           ======================================= */
+		body {
+			font-family: sans-serif;
+			margin: 0;
+			background-color: var(--color-principal);
+			color: var(--color-texto);
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		h1 {
+			color: var(--color-secundario);
+			text-align: center;
+			padding-top: 40px;
+			margin-bottom: 40px;
+			font-size: 2.5em;
+		}
+
+		/* =======================================
+           LAYOUT DE CONTACTO (FLEXBOX de 2 Columnas)
+           ======================================= */
+		.contact-layout {
+			display: flex;
+			gap: 40px;
+			flex-wrap: wrap;
+			/* Permite que las columnas se apilen en móvil */
+			padding-bottom: 50px;
+		}
+
+		/* 60% para el formulario, 40% para la información */
+		.contact-form-section {
+			flex: 3;
+			min-width: 300px;
+			/* Asegura que no se encoja demasiado */
+			background-color: white;
+			padding: 30px;
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			/* Sombra genérica */
+		}
+
+		.contact-info-section {
+			flex: 2;
+			min-width: 250px;
+		}
+
+		/* =======================================
+           ESTILOS DE FORMULARIO
+           ======================================= */
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+			color: var(--color-texto);
+		}
+
+		input[type="text"],
+		input[type="email"],
+		textarea {
+			width: 100%;
+			padding: 12px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			/* Sombra interior sutil para simular hundimiento */
+			box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+		}
+
+		textarea {
+			resize: vertical;
+			min-height: 150px;
+		}
+
+		/* Estilo para el botón de envío (CTA) */
+		.btn-submit {
+			background-color: var(--color-acento);
+			/* Naranja Vibrante */
+			color: white;
+			padding: 12px 25px;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.1em;
+			cursor: pointer;
+			width: 100%;
+			/* Sombra de acento para destacar la acción */
+			box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
+			transition: background-color 0.3s, transform 0.3s;
+		}
+
+		.btn-submit:hover {
+			background-color: #e65c00;
+			transform: translateY(-2px);
+			/* Ligero efecto de elevación al hacer hover */
+		}
+
+		/* =======================================
+           ESTILOS DE INFORMACIÓN
+           ======================================= */
+		.info-item {
+			display: flex;
+			align-items: center;
+			margin-bottom: 25px;
+		}
+
+		.info-item .icon {
+			font-size: 1.5em;
+			color: var(--color-acento);
+			margin-right: 15px;
+		}
+
+		.map-placeholder {
+			height: 250px;
+			background-color: #ddd;
+			/* Fondo gris para simular un mapa */
+			border-radius: 8px;
+			text-align: center;
+			line-height: 250px;
+			/* Centra el texto verticalmente */
+			color: var(--color-texto);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Media Query para móvil: Apila las columnas */
+		@media (max-width: 768px) {
+			.contact-layout {
+				flex-direction: column;
+				gap: 20px;
+			}
+
+			.contact-form-section,
+			.contact-info-section {
+				flex: 100%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<h1>Pongámonos en Contacto</h1>
+		<p style="text-align:center; margin-bottom: 30px;">Envíanos un mensaje o encuentra nuestra información de
+			contacto a continuación.</p>
+
+		<div class="contact-layout">
+
+			<div class="contact-form-section">
+				<h2>Envíanos un Mensaje</h2>
+				<form action="#" method="POST">
+
+					<label for="name">Nombre Completo</label>
+					<input type="text" id="name" name="name" required>
+
+					<label for="email">Correo Electrónico</label>
+					<input type="email" id="email" name="email" required>
+
+					<label for="subject">Asunto</label>
+					<input type="text" id="subject" name="subject">
+
+					<label for="message">Tu Mensaje</label>
+					<textarea id="message" name="message" required></textarea>
+
+					<button type="submit" class="btn-submit">Enviar Mensaje</button>
+				</form>
+			</div>
+
+			<div class="contact-info-section">
+				<h2>Detalles de Contacto</h2>
+
+				<div class="info-item">
+					<span class="icon">📍</span>
+					<div>
+						<strong>Nuestra Oficina</strong><br>
+						Calle Ficticia, 123 - Ciudad Web, W3B
+					</div>
+				</div>
+
+				<div class="info-item">
+					<span class="icon">📧</span>
+					<div>
+						<strong>Email de Soporte</strong><br>
+						<a href="mailto:info@ejemplo.com" style="color: var(--color-texto);">info@ejemplo.com</a>
+					</div>
+				</div>
+
+				<div class="info-item">
+					<span class="icon">📞</span>
+					<div>
+						<strong>Llámanos</strong><br>
+						+34 555 123 456
+					</div>
+				</div>
+
+				<div class="map-placeholder">
+					[ Aquí va el mapa incrustado ]
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>
