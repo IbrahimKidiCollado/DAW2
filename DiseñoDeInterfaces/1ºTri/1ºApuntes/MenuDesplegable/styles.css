@@ -1,0 +1,108 @@
+/* Definición de Variables CSS (Custom Properties) en el root del documento */
+:root{
+    /* --estado-buda: Duración de la transición para el despliegue del submenú. */
+    --estado-buda: 0.3s;
+    /* --cada-item: Altura fija de cada sub-item (28px). Necesaria para el cálculo de la altura total. */
+    --cada-item: 28px;
+    /* --cantidad-items: Valor por defecto de la cantidad de items (0), se sobrescribe en el HTML. */
+    --cantidad-items: 0;
+}
+
+/* Estilos de maquetación principal usando Flexbox */
+body{
+    /* display: flex: Habilita el modelo Flexbox para organizar los hijos (header) */
+    display: flex;
+    /* min-height: 100vh: Asegura que el body ocupe al menos toda la altura de la ventana. */
+    min-height: 100vh;
+    margin:0;
+    font-family: Arial;
+    font-size: 16px;
+    /* gap: 30px: Espacio entre los elementos flexibles del body. */
+    gap: 30px;
+}
+
+header{
+    /* width: 200px: Ancho fijo para la columna del menú. */
+    width: 200px;
+    background: #1E1E1E; /* Fondo oscuro */
+}
+
+/* Estilos de la lista principal del menú */
+nav ul{
+    margin: 0;
+    padding: 0;
+    /* list-style: none: Elimina los puntos o números de la lista. */
+    list-style: none;
+    line-height: 16px;
+}
+
+/* Separador para cada item principal */
+nav ul li{
+    border-bottom: 1px solid #1E1E1E;
+}
+
+/* Estilos base de los enlaces (items principales) */
+nav ul a{
+    /* box-sizing: border-box: Hace que el padding y el border no aumenten el ancho total de 100%. */
+    box-sizing: border-box;
+    color: white;
+    background: #121212;
+    /* display: block: Hace que el enlace ocupe todo el ancho del <li> para que sea clicable en toda su área. */
+    display: block;
+    width: 100%;
+    padding: 6px 10px;
+    /* text-decoration: none: Elimina el subrayado por defecto de los enlaces. */
+    text-decoration: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* MECANISMO DE DESPLIEGUE (LA CLAVE DE LA ANIMACIÓN)                 */
+/* ------------------------------------------------------------------ */
+
+/* Estilos de los submenús (anidados) */
+nav ul ul{
+    /* height: 0px: Oculta el submenú inicialmente. Este es el valor inicial de la transición. */
+    height: 0px;
+    /* overflow: hidden: Esconde cualquier contenido que desborde la altura de 0px. */
+    overflow: hidden;
+    /* transition: Aplica una animación suave al cambiar la propiedad 'height', usando la variable de duración. */
+    transition: var(--estado-buda);
+    
+    /* Contador CSS: Se usa para contar los <li>. (En este código, se usan las variables CSS del HTML en su lugar) */
+    counter-reset: items;
+}
+nav ul ul li{
+    /* Contador CSS: Incrementa el contador por cada sub-item (no usado en el cálculo final de altura, pero presente). */
+    counter-increment: items;
+}
+
+
+/* Estado al pasar el mouse por encima de un <li> principal que contiene un submenú */
+nav ul li:hover ul{
+    /*
+        Cálculo Dinámico de Altura:
+        Al hacer hover, se establece la altura exacta del submenú. Esto permite la transición.
+        Se multiplica: (la cantidad de items, definida en el HTML) * (la altura de cada item).
+        Ejemplo: calc(4 * 28px) = 112px
+    */
+    height: calc( var(--cantidad-items) * var(--cada-item) );
+
+    /* Fondo de gradiente para el submenú al desplegarse */
+    background: rgb(2,0,36); 
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(67,103,17,1) 35%, rgba(0,212,255,1) 100%);
+
+
+    /*
+    Comentarios de código alternativo que NO se usan actualmente:
+    height: 100%;
+    max-height: calc( counter(items) * var(--cada-item) );
+    */
+}
+
+
+/* Estilos de los enlaces dentro de los submenús */
+nav ul ul a{
+    /* background: transparent: Elimina el color de fondo oscuro de los items principales. */
+    background: transparent;
+}
+/* La llave final que cerraba la propiedad anterior fue omitida para corregir el error de sintaxis en el archivo original */

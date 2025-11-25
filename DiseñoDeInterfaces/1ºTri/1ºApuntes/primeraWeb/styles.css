@@ -1,0 +1,293 @@
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: #F8F9FA;
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+a:hover {
+	color: orange;
+	transition: 0.1s;
+}
+
+p {
+	color: #212529;
+	text-align: left;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 30px;
+	color:#007BFF;;
+}
+
+nav {
+	margin: 20px auto;
+	margin-bottom: 40px;
+	box-shadow: 0 4px 12px rgba(0, 123, 255, 0.312);
+	border-radius: 8px;
+	padding: 15px;
+	width: 90%;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	justify-content: space-evenly;
+}
+
+ul a {
+	text-align: none;
+	color: #007BFF;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+main {
+	margin:0 auto;
+	margin-bottom: 30px;
+	width: 90%;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 123, 255, 0.312);
+	padding: 15px;
+	flex-grow: 1;
+}
+
+footer {
+	display: flex;
+	padding: 30px;
+	margin: 0 auto;
+	gap: 20px;
+	background-color: white;
+	width: 90%;
+	box-shadow: 0 4px 12px rgba(0, 123, 255, 0.312);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	justify-content: space-evenly;
+	flex-flow: row wrap;
+	max-width: 100%;
+}
+
+footer h2 {
+	border-bottom: 3px solid #007BFF;
+	margin: 10px;
+	text-align: center;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+
+footer form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+footer form input {
+	padding: 5px;
+	border-radius: 8px;
+	border: #007BFF solid 1px;
+}
+
+footer textarea {
+	border:solid 1px #007BFF;
+	resize: none;
+}
+
+footer ul li {
+	list-style: none;
+	text-decoration: none;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+footer ul {
+	display: flex;
+	flex-direction: column;
+}
+
+footer div {
+	display: flex;
+	gap: 20px;
+	justify-content: space-evenly;
+}
+
+footer div img {
+	width: 30px;
+}
+
+.ultimoElemento {
+	margin-bottom: 70px;
+}
+
+.perfiles-container {
+	display: flex;
+	flex-flow: row wrap;
+	max-width: 100%;
+	margin:0 auto;
+	justify-content: space-evenly;
+	gap: 50px;
+}
+
+.perfiles-container div {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	background-image: url(profile-picture_12225773.png);
+	background-size: cover;
+}
+
+.services-container {
+	display: flex;
+	margin: 0 auto; 
+	gap: 20px;
+	flex-flow: row wrap;
+	width: 90%;
+	max-width: 100%;
+	justify-content: space-evenly;
+}
+
+.services-container main {
+	width: 250px;
+	height: 300px;
+	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.services-container main:hover {
+	transform: translateY(-5px);
+	transition: 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); } /* Empieza sin rotación */
+    25% { transform: rotate(2deg); } /* Rota ligeramente a la derecha */
+    50% { transform: rotate(-2deg); } /* Rota ligeramente a la izquierda */
+    75% { transform: rotate(2deg); } /* Vuelve a la derecha */
+    100% { transform: rotate(0deg); } /* Termina sin rotación */
+}
+
+.services-container main:hover p:first-child {
+	animation: shake 0.4s ease-in-out infinite;
+}
+
+.services-container p:first-child {
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.services-container h3 {
+	color: #007BFF;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+.titulo-services {
+	font-size: 40px;
+}
+
+button {
+	margin-top: auto;
+	padding: 10px;
+	color: white;
+	font-weight:bold;
+	font-size: 16px;
+	background-color: orange;
+	border-radius: 5px;
+	border:none;
+	width: 150px;
+	box-shadow: 0 4px 12px rgba(255, 106, 0, 0.527);
+	margin-bottom: 20px;
+}
+
+main div form {
+	display: flex;
+	flex-direction: column;
+}
+
+.contacto-container {
+	display: flex;
+	gap: 30px;
+	justify-content: space-evenly;
+	flex-flow: row wrap;
+	max-width: 100%;
+}
+
+.contacto-container div {
+	width: 400px;
+}
+
+.contacto-container h3 {
+	font-size: 25px;
+}
+
+.contacto-container form label {
+	margin: 20px 0 5px 0;
+	font-weight: 600;
+}
+
+.contacto-container form textarea {
+	border-radius: 5px;
+	border: 1px solid #007BFF;
+	resize: vertical;
+	margin-bottom: 20px;
+}
+
+.contacto-container form input {
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #007BFF;
+}
+
+.contacto-container div div {
+	display: flex;
+	align-items: center;
+}
+
+.contacto-container div div:first-child {
+	font-size: 24px;
+	width: 50px;
+}
+
+.contacto-container div div span {
+	font-weight: bold;
+}
+
+.contacto-container div div div {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	align-items: start;
+	vertical-align: middle;
+}
+
+.detalles-contacto {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+form input:last-child {
+	margin-top: auto;
+	padding: 10px;
+	color: white;
+	font-weight:bold;
+	font-size: 16px;
+	background-color: orange;
+	border-radius: 5px;
+	border:none;
+	width: 100%;
+	box-shadow: 0 4px 12px rgba(255, 106, 0, 0.527);
+	margin-bottom: 20px;
+}

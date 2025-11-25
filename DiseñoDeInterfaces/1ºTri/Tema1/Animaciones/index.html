@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>4 Animaciones CSS</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			background-color: #111;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			gap: 30px;
+			padding: 20px;
+		}
+
+		/* Animación 1: Movimiento y cambio de color */
+		@keyframes movimientoColor {
+			0% {
+				background-color: #ff4757;
+				transform: translate(0, 0) rotate(0deg);
+			}
+
+			25% {
+				background-color: #2ed573;
+				transform: translate(200px, 0) rotate(90deg);
+			}
+
+			50% {
+				background-color: #1e90ff;
+				transform: translate(200px, 200px) rotate(180deg);
+			}
+
+			75% {
+				background-color: #ffa502;
+				transform: translate(0, 200px) rotate(270deg);
+			}
+
+			100% {
+				background-color: #ff4757;
+				transform: translate(0, 0) rotate(360deg);
+			}
+		}
+
+		/* Animación 2: Pulsación y cambio de forma */
+		@keyframes pulsoForma {
+
+			0%,
+			100% {
+				background-color: #ff6b81;
+				border-radius: 10px;
+				transform: scale(1);
+			}
+
+			25% {
+				background-color: #ff9f43;
+				border-radius: 30px;
+				transform: scale(1.2);
+			}
+
+			50% {
+				background-color: #2e86de;
+				border-radius: 50%;
+				transform: scale(1);
+			}
+
+			75% {
+				background-color: #10ac84;
+				border-radius: 10px 50px;
+				transform: scale(1.1);
+			}
+		}
+
+		/* Animación 3: Rebote y sombra */
+		@keyframes rebote {
+
+			0%,
+			100% {
+				transform: translateY(0);
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			}
+
+			25% {
+				transform: translateY(-100px);
+				box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+			}
+
+			50% {
+				transform: translateY(0);
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			}
+
+			75% {
+				transform: translateY(-50px);
+				box-shadow: 0 10px 15px rgba(0, 0, 0, 0.35);
+			}
+		}
+
+		/* Animación 4: Rotación 3D y gradiente */
+		@keyframes rotacion3D {
+			0% {
+				transform: perspective(500px) rotateY(0deg);
+				background: linear-gradient(45deg, #ff6b6b, #ffa500);
+			}
+
+			25% {
+				transform: perspective(500px) rotateY(90deg);
+				background: linear-gradient(45deg, #ffa500, #ffd700);
+			}
+
+			50% {
+				transform: perspective(500px) rotateY(180deg);
+				background: linear-gradient(45deg, #ffd700, #90ee90);
+			}
+
+			75% {
+				transform: perspective(500px) rotateY(270deg);
+				background: linear-gradient(45deg, #90ee90, #87ceeb);
+			}
+
+			100% {
+				transform: perspective(500px) rotateY(360deg);
+				background: linear-gradient(45deg, #87ceeb, #ff6b6b);
+			}
+		}
+
+		.container {
+			width: 150px;
+			height: 150px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			font-weight: bold;
+			font-family: Arial, sans-serif;
+		}
+
+		.c1 {
+			background-color: #ff4757;
+			animation: movimientoColor 4s infinite ease-in-out;
+		}
+
+		.c2 {
+			background-color: #ff6b81;
+			animation: pulsoForma 3s infinite ease-in-out;
+		}
+
+		.c3 {
+			background-color: #2e86de;
+			animation: rebote 2s infinite ease-in-out;
+		}
+
+		.c4 {
+			background: linear-gradient(45deg, #ff6b6b, #ffa500);
+			animation: rotacion3D 5s infinite linear;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container c1">Movimiento</div>
+	<div class="container c2">Pulso</div>
+	<div class="container c3">Rebote</div>
+	<div class="container c4">3D</div>
+</body>
+
+</html>

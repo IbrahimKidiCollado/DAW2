@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio de bordes CSS3 y capas</title>
+	<style>
+		/* ---------------------------------------------------- */
+		/* ESTILOS BASE Y POSICIONAMIENTO GENERAL */
+		/* ---------------------------------------------------- */
+		body {
+			position: relative;
+			/* Establece el cuerpo como contenedor de referencia para los elementos 'absolute' */
+			margin: 0px;
+			/* Elimina el margen por defecto del body */
+			min-height: 100vh;
+			/* Asegura que el cuerpo ocupe al menos toda la altura de la ventana (Viewport Height) */
+		}
+
+		/* Estilos para la cabecera (header) */
+		.cabecera {
+			background-color: aqua;
+			width: 100%;
+			height: 100px;
+			position: absolute;
+			/* Posicionamiento absoluto respecto al body */
+			top: 0px;
+			/* Se ancla a la parte superior */
+		}
+
+		/* Estilos para el pie de página (footer) */
+		.footer {
+			position: absolute;
+			/* Posicionamiento absoluto respecto al body */
+			bottom: 0px;
+			/* Se ancla a la parte inferior */
+			background-color: black;
+			height: 100px;
+			width: 100%;
+		}
+
+		/* Estilos base para los contenedores de contenido */
+		.contenedores {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			/* Posicionamiento absoluto, permitiendo moverlos con top/left/bottom/right */
+			overflow: hidden;
+			/* Oculta cualquier contenido que se desborde del contenedor (útil para el texto) */
+			padding: 0px;
+			margin: 0px;
+		}
+
+		/* Estilos para los párrafos dentro de los contenedores */
+		p {
+			margin: 0px;
+			/* Elimina el margen por defecto de los párrafos para maximizar el espacio */
+		}
+
+		/* ---------------------------------------------------- */
+		/* ESTILOS ESPECÍFICOS Y EFECTOS CSS3 */
+		/* ---------------------------------------------------- */
+
+		/* Contenedor 1: Sombra y Gradiente Lineal */
+		.c1 {
+			top: 20%;
+			/* Posicionado a 20% de la parte superior del body */
+			left: 30%;
+			/* Posicionado a 30% de la izquierda del body */
+			box-shadow: 0 0 30px green;
+			/* Aplica una sombra exterior difusa de color verde */
+			border: 1px solid black;
+			/* Borde simple */
+			/* Gradiente Lineal (prefijo -webkit- para compatibilidad antigua de navegadores) */
+			background-image: -webkit-gradient(linear,
+					left bottom,
+					/* Punto de inicio: Abajo a la izquierda */
+					left top,
+					/* Punto final: Arriba a la izquierda (Genera un gradiente vertical de abajo a arriba) */
+					color-stop(0.22, #d9bd34),
+					/* Amarillo/mostaza en el 22% */
+					color-stop(0.61, #6fff4d)
+					/* Verde claro en el 61% */
+				);
+		}
+
+
+		/* Contenedor 2: Sombra de Texto */
+		.c2 {
+			top: 50%;
+			/* Posicionado a 50% de la parte superior (verticalmente centrado) */
+			left: 30%;
+			/* Aplica una sombra al texto (desplazamiento-X | desplazamiento-Y | difuminado | color) */
+			text-shadow: 2px 2px 2px #000;
+		}
+
+		/* Contenedor 3: Sombra de Caja (Box Shadow) */
+		.c3 {
+			top: 20%;
+			left: 55%;
+			/* Posicionado más a la derecha */
+			box-shadow: 0 0 30px #a3ff0f;
+			/* Aplica una sombra exterior difusa de color verde brillante */
+		}
+
+		/* Contenedor 4: Gradiente Radial */
+		.c4 {
+			top: 50%;
+			left: 55%;
+			/* Gradiente Radial (prefijo -webkit- para compatibilidad antigua de navegadores) */
+			background: -webkit-gradient(radial,
+					50% 50%,
+					/* Centro del círculo inicial (X Y) */
+					0,
+					/* Radio inicial (círculo de radio 0, o sea, un punto) */
+					50% 50%,
+					/* Centro del círculo final (X Y) */
+					100,
+					/* Radio final (círculo de 100px de radio) */
+					from(#b53131),
+					/* Color inicial (Rojo oscuro) */
+					color-stop(0.5, #8b98da),
+					/* Color intermedio (Azul grisáceo) en el 50% */
+					to(#aa0404)
+					/* Color final (Rojo fuerte) */
+				);
+		}
+	</style>
+</head>
+
+<body>
+	<header class="cabecera"></header>
+	<main>
+		<div class="contenedores c1">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis velit iusto magni aliquid,
+				consequuntur porro deleniti nisi quibusdam, quos cum quaerat asperiores aspernatur ipsa pariatur, fugit
+				quas at ratione adipisci natus omnis. Similique accusantium amet repudiandae consequuntur expedita
+				eligendi. Numquam sit sapiente perspiciatis aliquid deserunt tempora iusto, necessitatibus quos.</p>
+		</div>
+		<div class="contenedores c2">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis velit iusto magni aliquid,
+				consequuntur porro deleniti nisi quibusdam, quos cum quaerat asperiores aspernatur ipsa pariatur, fugit
+				quas at ratione adipisci natus omnis. Similique accusantium amet repudiandae consequuntur expedita
+				eligendi. Numquam sit sapiente perspiciatis aliquid deserunt tempora iusto, necessitatibus quos.</p>
+		</div>
+		<div class="contenedores c3">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis velit iusto magni aliquid,
+				consequuntur porro deleniti nisi quibusdam, quos cum quaerat asperiores aspernatur ipsa pariatur, fugit
+				quas at ratione adipisci natus omnis. Similique accusantium amet repudiandae consequuntur expedita
+				eligendi. Numquam sit sapiente perspiciatis aliquid deserunt tempora iusto, necessitatibus quos.</p>
+		</div>
+		<div class="contenedores c4">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis blanditiis velit iusto magni aliquid,
+				consequuntur porro deleniti nisi quibusdam, quos cum quaerat asperiores aspernatur ipsa pariatur, fugit
+				quas at ratione adipisci natus omnis. Similique accusantium amet repudiandae consequuntur expedita
+				eligendi. Numquam sit sapiente perspiciatis aliquid deserunt tempora iusto, necessitatibus quos.</p>
+		</div>
+	</main>
+	<footer class="footer"></footer>
+</body>
+
+</html>

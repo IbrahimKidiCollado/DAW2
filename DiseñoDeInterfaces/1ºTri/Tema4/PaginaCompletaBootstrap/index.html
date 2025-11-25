@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Web Moderna y Responsive con Componentes Bootstrap</title>
+	<!-- Carga de Bootstrap 5 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<style>
+		/* Estilos personalizados */
+		body {
+			background-color: #f0f4f8;
+			/* Un color de fondo más suave */
+			font-family: 'Inter', sans-serif;
+		}
+
+		.section-box {
+			background-color: white;
+			padding: 1.5rem;
+			border-radius: 0.75rem;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+			/* Sombra más definida */
+			margin-bottom: 1.5rem;
+		}
+
+		/* Colores personalizados */
+		.border-purple {
+			border-color: #6f42c1 !important;
+		}
+
+		.text-purple {
+			color: #6f42c1 !important;
+		}
+
+		/* Altura fija para el carrusel y las imágenes */
+		.carousel-item img {
+			max-height: 400px;
+			/* Altura máxima para escritorio */
+			object-fit: cover;
+		}
+
+		@media (max-width: 767px) {
+			.carousel-item img {
+				max-height: 250px;
+				/* Altura más baja en móviles */
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- BARRA DE NAVEGACIÓN (NAVBAR) -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+		<div class="container">
+			<a class="navbar-brand fw-bold" href="#">Proyecto Web 5.3</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#seccion-tabs">Servicios</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#formulario">Contacto</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-sm btn-outline-info ms-lg-3" href="#">Área Privada</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container py-4">
+
+		<!-- CARRUSEL (CAROUSEL) -->
+		<div id="carouselExampleIndicators" class="carousel slide section-box p-0 mb-4" data-bs-ride="carousel">
+			<h1 class="visually-hidden">Carrusel de Imágenes Destacadas</h1>
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+					aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+					aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+					aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner rounded-3">
+				<div class="carousel-item active">
+					<img src="https://picsum.photos/1200/400?random=a" class="d-block w-100" alt="Vista del Proyecto">
+					<div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 p-2 rounded">
+						<h5>Diseño 100% Responsive</h5>
+						<p>Utilizando el potente sistema de Grid de Bootstrap.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="https://picsum.photos/1200/400?random=b" class="d-block w-100" alt="Análisis de Datos">
+					<div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 p-2 rounded">
+						<h5>Manejo de Componentes</h5>
+						<p>Integración de Tablas, Formularios y Navegación avanzada.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="https://picsum.photos/1200/400?random=c" class="d-block w-100" alt="Equipo Trabajando">
+					<div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 p-2 rounded">
+						<h5>Interactividad JS</h5>
+						<p>Carousel y Pestañas (`Tabs`) funcionando correctamente.</p>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Anterior</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Siguiente</span>
+			</button>
+		</div>
+
+
+		<!-- TABS INTERACTIVAS (JAVASCRIPT COMPONENT) -->
+		<div id="seccion-tabs" class="section-box">
+			<h2 class="h4 fw-bold text-dark mb-4 border-bottom pb-2">📂 Nuestros Servicios Clave (Pestañas)</h2>
+
+			<!-- NAVS & TABS -->
+			<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+				<li class="nav-item" role="presentation">
+					<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#tab-diseño"
+						type="button" role="tab" aria-controls="tab-diseño" aria-selected="true">Diseño Web</button>
+				</li>
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#tab-datos"
+						type="button" role="tab" aria-controls="tab-datos" aria-selected="false">Análisis de
+						Datos</button>
+				</li>
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#tab-marketing"
+						type="button" role="tab" aria-controls="tab-marketing" aria-selected="false">Marketing</button>
+				</li>
+			</ul>
+
+			<!-- CONTENIDO DE LAS PESTAÑAS -->
+			<div class="tab-content border border-top-0 p-3 rounded-bottom" id="myTabContent">
+				<div class="tab-pane fade show active" id="tab-diseño" role="tabpanel" aria-labelledby="home-tab"
+					tabindex="0">
+					<h5 class="mt-2 text-primary">Diseño Centrado en el Usuario</h5>
+					<p class="small text-muted">Creamos interfaces modernas, intuitivas y, sobre todo, totalmente
+						adaptables
+						a cualquier dispositivo (Desktop, Tablet y Móvil). Nuestro foco es la experiencia de usuario
+						(UX).</p>
+					<button class="btn btn-sm btn-primary">Ver Portafolio</button>
+				</div>
+				<div class="tab-pane fade" id="tab-datos" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+					<h5 class="mt-2 text-success">Inteligencia de Negocio</h5>
+					<p class="small text-muted">Transformamos tus datos brutos en información valiosa a través de
+						paneles de
+						control interactivos y métricas claras, ayudándote a tomar mejores decisiones.</p>
+				</div>
+				<div class="tab-pane fade" id="tab-marketing" role="tabpanel" aria-labelledby="contact-tab"
+					tabindex="0">
+					<h5 class="mt-2 text-warning text-dark">Estrategias de Crecimiento</h5>
+					<p class="small text-muted">Desde SEO hasta campañas en redes sociales, diseñamos estrategias
+						personalizadas para aumentar tu visibilidad y alcanzar a tu público objetivo.</p>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- CUERPO PRINCIPAL: Columnas con Reordenación y Anidación -->
+		<div class="row mt-4">
+
+			<!-- Columna Izquierda (Sidebar / Tipografía y Listas) -->
+			<div id="columna-izquierda" class="col-12 col-md-4 order-2 order-md-1">
+				<div class="section-box bg-light border-start border-4 border-purple">
+					<h2 class="h4 fw-bold text-purple mb-4">📚 Navegación y Contacto</h2>
+
+					<!-- Lista de Navegación (List Group) -->
+					<h3 class="h6 text-uppercase text-muted mt-0 mb-3 border-bottom pb-1">Secciones</h3>
+					<div class="list-group mb-4">
+						<a href="#" class="list-group-item list-group-item-action list-group-item-purple active"
+							aria-current="true">Inicio Principal</a>
+						<a href="#" class="list-group-item list-group-item-action">Detalles del Proyecto</a>
+						<a href="#" class="list-group-item list-group-item-action">Datos y Métricas</a>
+						<a href="#" class="list-group-item list-group-item-action disabled">Servicios (Próximamente)</a>
+					</div>
+
+					<!-- Dirección (address) y texto con énfasis -->
+					<address class="small text-muted mb-4">
+						<strong>Oficinas Centrales:</strong><br>
+						Calle de Ejemplo, 123<br>
+						00001 - Ciudad Ficticia, País<br>
+						<abbr title="Teléfono">Tel:</abbr> (123) 456-7890
+					</address>
+					<blockquote class="blockquote small border-start border-3 ps-3">
+						<p class="mb-0 text-secondary fst-italic">"La mejor manera de predecir el futuro es crearlo."
+						</p>
+						<footer class="blockquote-footer mt-1 text-end">Peter Drucker</footer>
+					</blockquote>
+				</div>
+			</div>
+
+			<!-- Columna Central (Contenido Principal / Tabla e Imagen) -->
+			<div id="columna-central" class="col-12 col-md-4 order-1 order-md-2">
+				<div class="section-box bg-info-subtle border-top border-4 border-info">
+					<h2 class="h4 fw-bold text-info-emphasis mb-4">📊 Datos y Representación Visual</h2>
+
+					<!-- TABLA (Elemento CSS) -->
+					<h3 class="h6 text-uppercase text-muted mt-0 mb-3 border-bottom pb-1">Métricas de Rendimiento</h3>
+					<div class="table-responsive">
+						<table class="table table-striped table-hover table-sm border">
+							<thead class="table-dark">
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Característica</th>
+									<th scope="col">Valor</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">1</th>
+									<td>Velocidad (ms)</td>
+									<td><span class="badge text-bg-success">150</span></td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>Puntuación SEO</td>
+									<td>85%</td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>Tráfico Mensual</td>
+									<td><span class="badge text-bg-warning text-dark">Alto</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<hr class="my-4">
+
+					<!-- IMAGEN (Elemento CSS) con Card -->
+					<h3 class="h6 text-uppercase text-muted mt-0 mb-3 border-bottom pb-1">Imagen con Borde</h3>
+					<div class="card shadow-sm">
+						<img src="https://picsum.photos/400/200?random=1" class="card-img-top img-fluid"
+							alt="Imagen de cuadrícula de ejemplo">
+						<div class="card-body">
+							<p class="card-text small text-muted mb-0">Imagen con clase `img-fluid` para asegurar
+								adaptabilidad.</p>
+						</div>
+					</div>
+
+					<!-- Rejilla anidada (demostración de Anidación de Columnas) -->
+					<div class="mt-4 border border-info-subtle p-3 rounded bg-white">
+						<h3 class="h6 fw-bold text-info mb-3 border-bottom pb-2">Rejilla Anidada
+						</h3>
+						<div class="row g-2">
+							<div class="col-12 col-md-4">
+								<div class="p-2 bg-success-subtle text-success text-center small fw-medium rounded">
+									A
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="p-2 bg-warning-subtle text-warning text-center small fw-medium rounded">
+									B
+								</div>
+							</div>
+							<div class="col-12 col-md-4">
+								<div class="p-2 bg-danger-subtle text-danger text-center small fw-medium rounded">
+									C
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Columna Derecha (Formulario) -->
+			<div id="formulario" class="col-12 col-md-4 order-3">
+				<div class="section-box bg-light border-end border-4 border-danger">
+					<h2 class="h4 fw-bold text-danger mb-4">📧 Formulario de Contacto</h2>
+
+					<!-- FORMULARIO (Campos y Botones) -->
+					<h3 class="h6 text-uppercase text-muted mt-0 mb-3 border-bottom pb-1">Envía tu Mensaje</h3>
+					<form>
+						<!-- Campo de Nombre -->
+						<div class="mb-3">
+							<label for="inputNombre" class="form-label small fw-semibold">Nombre Completo</label>
+							<input type="text" class="form-control" id="inputNombre" placeholder="Tu nombre" required>
+						</div>
+
+						<!-- Campo de Email -->
+						<div class="mb-3">
+							<label for="inputEmail" class="form-label small fw-semibold">Correo Electrónico</label>
+							<input type="email" class="form-control" id="inputEmail" placeholder="nombre@ejemplo.com"
+								required>
+						</div>
+
+						<!-- Área de Texto -->
+						<div class="mb-3">
+							<label for="textAreaMensaje" class="form-label small fw-semibold">Mensaje</label>
+							<textarea class="form-control" id="textAreaMensaje" rows="3" required></textarea>
+						</div>
+
+						<!-- Checkbox y Botón -->
+						<div class="mb-4 form-check">
+							<input type="checkbox" class="form-check-input" id="checkAceptar" required>
+							<label class="form-check-label small" for="checkAceptar">Acepto los <a href="#"
+									class="text-danger">términos</a></label>
+						</div>
+
+						<!-- Botón de Envío -->
+						<button type="submit" class="btn btn-danger btn-lg w-100 shadow">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-send-fill me-2" viewBox="0 0 16 16">
+								<path
+									d="M15.964.686a.585.585 0 0 0-.573-.207L.34 7.025a.546.546 0 0 0 .178 1.053l3.66 1.139 7.042-5.462a.488.488 0 0 1 .695.695L5.432 12.443l1.139 3.66a.546.546 0 0 0 1.053.178l6.546-15.051a.585.585 0 0 0-.207-.573z" />
+							</svg>
+							Enviar
+						</button>
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- PIE DE PÁGINA -->
+		<footer class="section-box bg-dark text-white mt-3">
+			<div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+				<span class="order-2 order-md-1 text-muted mb-2 mb-md-0">
+					&copy; 2025 Web Responsive Demo.
+				</span>
+				<div class="order-1 order-md-2 text-white fw-medium">
+					<a href="#" class="text-decoration-none text-light me-3">Mapa del Sitio</a>
+					<span class="text-muted">|</span>
+					<a href="#" class="text-decoration-none text-light ms-3">Soporte</a>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Carga de Bootstrap JS (necesario para Navbar, Carousel y Tabs) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
