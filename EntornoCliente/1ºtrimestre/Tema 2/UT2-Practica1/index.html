@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>UT2 - PRACTICA 1</title>
+</head>
+
+<body>
+	<script>
+		function esPrimo(number) {
+			let contador = 0;
+			for (let i = 0; i < number; i++) {
+				if (number % i == 0) contador++;
+			}
+			if (contador > 2) return 'no es primo';
+			else return 'es primo';
+		}
+
+		for (let j = 0; j < 20; j++) {
+			let number = Math.floor(Math.random() * 100) + 1;
+			console.log(`El numero ${number} ${esPrimo(number)}`);
+		}
+
+	</script>
+</body>
+
+</html>

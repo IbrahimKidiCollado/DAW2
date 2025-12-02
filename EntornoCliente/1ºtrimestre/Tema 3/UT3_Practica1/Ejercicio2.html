@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<p id="unique"></p>
+	<script>
+		const porcentajes = {
+			practicas: 0.45,
+			examen: 0.45,
+			actitud: 0.10
+		};
+
+		const prac1 = 10//parseFloat(prompt('Dame la primera nota de practicas: '));
+		const prac2 = 10//parseFloat(prompt('Dame la segunda nota de practicas: '));
+		const exam1 = 10//parseFloat(prompt('Dame la nota de examen: '));
+		const act1 = 10//parseFloat(prompt('Dame la nota de actitud: '));
+
+		function calcularMedia() {
+			let result;
+			let aprobado = false;
+
+			const results = {
+				nota: undefined,
+				final: undefined,
+				error: undefined
+			}
+
+			if (prac1 < 4 || prac2 < 4 || exam1 < 4) results.error = 'Para realizar la media es necesario que todas las notas sean superiores a 4';
+
+			if ((((prac1 + prac2) / 2) * porcentajes.practicas) + (exam1 * porcentajes.examen) / 10 >= 4.5) {
+				result = (((prac1 + prac2) / 2) * porcentajes.practicas) + (exam1 * porcentajes.examen) + (act1 * porcentajes.actitud);
+			} else {
+				result = (((prac1 + prac2) / 2) * porcentajes.practicas) + (exam1 * porcentajes.examen);
+			}
+
+			if (result >= 4) results.final = 'aprobado';
+			else results.final = 'suspenso';
+
+			return results;
+		}
+
+		const unique = document.getElementById('unique');
+		const resultados = calcularMedia();
+		unique.innerHTML = `La media de las notas: ${resultados.error === undefined ? resultados.error : resultados.nota} y está ${resultados.final}`;
+	</script>
+</body>
+
+</html>

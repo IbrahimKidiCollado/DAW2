@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.contenedor {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 30%;
+			gap: 100px;
+		}
+
+		.btn {
+			width: 100px;
+			height: 60px;
+		}
+	</style>
+	<title>Ejercicio 2</title>
+</head>
+
+<body>
+	<div class="contenedor">
+		<input type="button" class="btn" value="ADELANTE" onclick="adelante()">
+		<input type="button" class="btn" value="ATRAS" onclick="atras()">
+	</div>
+	<script>
+		function adelante() {
+			history.forward();
+		}
+
+		function atras() {
+			history.back();
+		}
+	</script>
+</body>
+
+</html>

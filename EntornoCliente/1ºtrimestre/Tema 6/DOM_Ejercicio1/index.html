@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EJERCICIO 1</title>
+</head>
+
+<body>
+	<script>
+		const createDiv = document.createElement('div');
+		document.body.append(createDiv);
+
+		let num = 0;
+		for (let i = 1; i <= 3; i++) {
+			const createP = document.createElement('p');
+			createP.innerText = `Este es el parrafo ${i}`;
+			createP.setAttribute('id', 'parrafo' + i);
+			createDiv.append(createP);
+			document.body.append(createP);
+			num = i;
+		}
+
+		let IdsP = [];
+		for (let i = 1; i <= num; i++) {
+			IdsP.push('parrafo' + i);
+		}
+
+		const style = document.createElement('style');
+		style.innerHTML = `
+			.miClase{
+				color:red;
+			}
+		`;
+
+		document.head.append(style);
+
+		function cambiarTextos() {
+			document.getElementById(IdsP[0]).innerText = 'Primer parrafo cambiado';
+			const segundoP = document.getElementsByTagName('p');
+			segundoP[1].innerText = 'Segundo parrafo cambiado';
+			document.getElementById(IdsP[2]).setAttribute('class', 'miClase');
+			const tercerParrafo = document.getElementsByClassName('miClase')
+			tercerParrafo[0].innerText = 'Tercer parrafo cambiado';
+		}
+
+		function cambiarClases() {
+			document.getElementById(IdsP[0]).setAttribute('class', 'miClase');
+			document.getElementById(IdsP[1]).className = 'miClase';
+		}
+
+		function quitarClases() {
+			const parrafos = document.getElementsByTagName('p');
+
+			for (let i = 0; i < 3; i++) {
+				if (i !== 0) parrafos[i].className = '';
+				else parrafos[0].setAttribute('class', '');
+			}
+		}
+
+		const Ids = ['cambiarTextos', 'cambiarClases', 'quitarClases'];
+		for (let i = 0; i < 3; i++) {
+			const button = document.createElement('button');
+			button.setAttribute('id', Ids[i]);
+			button.textContent = Ids[i];
+			button.addEventListener('click', window[Ids[i]]);
+			document.body.append(button);
+		}
+	</script>
+</body>
+
+</html>
