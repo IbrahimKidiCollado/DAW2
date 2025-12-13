@@ -11,19 +11,30 @@
 
 <body>
 	<div class="container">
-		<form id="formulario">
-			<label for="Dificultad">¿Cual es la dificultad de programar?</label>
-			<input type="range" id="Dificultad" value="0">
-			<label for="Contraseña">Introduzca una contraseña: </label>
-			<input type="password" id="Contraseña" pattern="(?=.*[0-9]).{8,}">
-			<label for="Mes">¿En que fecha empezaste a programar?</label>
-			<input type="month" id="Mes" required>
-			<input type="number" max="31" min="1" value="1" id="dia">
-			<label for="url">Introduce la url de la pagina con la que empezaste: </label>
-			<input type="url" placeholder="htpps://www.google.com" id="url"
+		<form id="formulario" novalidate>
+			<label for="dificultad">¿Cual es la dificultad de programar?</label>
+			<input type="range" id="dificultad" name="dificultad" value="0" min="0" max="10">
+
+			<label for="password">Introduzca una contraseña: </label>
+			<input type="password" id="password" name="password" pattern="(?=.*[0-9]).{8,}"
+				title="La contraseña debe tener un mínimo de 8 caracteres y al menos 1 número." required>
+
+			<fieldset>
+				<legend>¿En qué fecha empezaste a programar?</legend>
+				<label for="mes">Mes y Año:</label>
+				<input type="month" id="mes" name="mes" required>
+
+				<label for="dia">Día:</label>
+				<input type="number" id="dia" name="dia" max="31" min="1" value="1" required>
+			</fieldset>
+
+			<label for="url_inicio">Introduce la url de la pagina con la que empezaste: </label>
+			<input type="url" id="url_inicio" name="url_inicio" required placeholder="https://www.google.com"
 				pattern="https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}">
-			<label for="restart">Para limpiar el formulario: </label>
-			<input type="reset" id="restart">
+
+			<p id="error"></p>
+
+			<input type="reset" id="restart" value="Limpiar">
 			<input type="submit" value="Enviar" id="enviar">
 		</form>
 	</div>

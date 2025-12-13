@@ -1,34 +1,57 @@
-document.getElementById("enviar").addEventListener("click", validarFormulario);
+document.getElementById("formulario").addEventListener("submit", validar);
 
-function validarFormulario(e) {
-	const campos = document.querySelectorAll("#formualrio [data-validation]");
-	let formValido = true;
+function validaContraseña() {
+    let el = document.getElementById("password"); 
+    if (!el.checkValidity()) {
+        error(el);
+        return false;
+    }
+    return true;
+}   
 
-	campos.forEach(campo => {
-		if (!campo.checkValidity()) {
-			formValido = false;
-
-			mostrarMensajeError(campo);
-		} else {
-			limpiarMensajeError(campo);
-		}
-	});
-
-	if (!formValido) {
-		e.preventDefault();
-	}
-
-	return formValido;
+function validaMes() {
+    let el = document.getElementById("mes"); 
+    if(!el.checkValidity()) {
+        error(el);
+        return false;
+    }
+    return true
 }
 
-function mostrarMensajeError(input) {
-	const val = input.validity;
-	let message = "";
+function validaUrl() {
+    let el = document.getElementById("url_inicio"); 
+    if(!el.checkValidity()) {
+        error(el);
+        return false;
+    }
+    return true
+}
 
-	if (val.valueMissing) {
-		message = "Debe introducir un valor...";
-	} else if (val.patternMismatch) {
-		if (input.type === "password") message = "Debe introducir 8 caracteres y un numero...";
-		else message = "Debe introducir un formato valido...";
-	} else if (val.typeMismatch) 
+function validar(e) {
+    borrarError();
+
+    let passwordValida = validaContraseña(); 
+    validaMes();
+    validaUrl();
+    
+    if (passwordValida && confirm("Aceptar para enviar el formulario")) {
+        return true; 
+    } else {
+        e.preventDefault(); 
+        return false;
+    }
+}
+
+function error(el) {
+    document.getElementById("error").innerHTML = el.validationMessage;
+    el.style.border = "1px solid red";
+    el.focus();
+}
+
+function borrarError() {
+    let formulario = document.forms[0];
+    document.getElementById("error").innerHTML = "";
+    for (let i = 0 ; i < formulario.elements.length; i++) {
+        formulario.elements[i].style.border = "";
+    }
 }
