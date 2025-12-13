@@ -1,0 +1,20 @@
+//Nuestros colores vintage
+$base: #ede6db;
+$azul: #8fbdd3;
+$verde: #a2b38b;
+$rojo: #9d5353;
+$rosa: #e9d5da;
+
+//Sobreescribir las variables de bootstrap
+
+$primary: $azul;
+$secondary: darken($rosa, 20%);
+$success: $verde;
+$info: lighten($azul, 10%);
+$warning: $verde;
+$danger: $rojo;
+$light: lighten($rosa, 5%);
+$dark: darken($rosa, 10%);
+
+//Importacion de bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";

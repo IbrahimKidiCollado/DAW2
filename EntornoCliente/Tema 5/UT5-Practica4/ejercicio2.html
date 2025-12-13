@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<script src="script.js" defer></script>
+	<title>Ejercicio 1</title>
+</head>
+
+<body>
+	<div>
+		<h3>Select HTML</h3>
+		<label for="selectFrutas">Elige una fruta:</label>
+		<select id="selectFrutas" name="frutaSeleccionada">
+			<option value="" disabled selected>-- Selecciona una opción --</option>
+			<option value="manzana">Manzana</option>
+			<option value="platano">Plátano</option>
+			<option value="fresa">Fresa</option>
+			<option value="uva">Uva</option>
+			<option value="kiwi">Kiwi</option>
+		</select>
+	</div>
+	<div>
+		<h3>Datalist HTML</h3>
+		<label for="inputFrutas">Escribe una fruta (o elige de la sugerencia):</label>
+		<input list="listaFrutas" id="inputFrutas" name="frutaSugerida">
+
+		<datalist id="listaFrutas">
+			<option value="Manzana">
+			<option value="Plátano">
+			<option value="Fresa">
+			<option value="Uva">
+			<option value="Kiwi">
+		</datalist>
+	</div>
+	<div id="ultimoContainer">
+		<p id="texto"></p>
+	</div>
+</body>
+
+</html>

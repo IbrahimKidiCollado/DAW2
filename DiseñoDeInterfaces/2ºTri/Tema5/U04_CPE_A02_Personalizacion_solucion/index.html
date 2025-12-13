@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Personalización de Colores Bootstrap</title>
+	<link rel="stylesheet" href="scss/custom.css">
+</head>
+
+<body>
+
+	<div class="container my-5">
+		<h1>Prueba de Colores Personalizados</h1>
+		<hr>
+
+		<div class="mb-3">
+			<button class="btn btn-primary">Primary ($azul)</button>
+			<button class="btn btn-secondary">Secondary ($rosa oscuro)</button>
+			<button class="btn btn-success">Success ($verde)</button>
+			<button class="btn btn-danger">Danger ($rojo)</button>
+			<button class="btn btn-info">Info (lighten($azul))</button>
+			<button class="btn btn-warning">Warning ($amarillo)</button>
+			<button class="btn btn-light">Light (lighten($rosa))</button>
+			<button class="btn btn-dark">Dark (darken($rosa))</button>
+		</div>
+
+		<div class="alert alert-primary" role="alert">
+			Alerta Primary.
+		</div>
+		<div class="alert alert-danger" role="alert">
+			Alerta Danger.
+		</div>
+		<div class="alert alert-success" role="alert">
+			Alerta Success.
+		</div>
+
+		<div class="p-3 mb-2 bg-dark text-light">Fondo Dark y Texto Light</div>
+		<div class="p-3 mb-2 bg-light text-dark">Fondo Light y Texto Dark</div>
+		<div class="p-3 mb-2 bg-primary text-white">Fondo Primary y Texto Blanco</div>
+
+	</div>
+
+</body>
+
+</html>

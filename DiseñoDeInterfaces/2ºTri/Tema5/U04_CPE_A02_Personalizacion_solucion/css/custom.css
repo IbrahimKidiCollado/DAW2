@@ -1,0 +1,26 @@
+/* Error: Can't find stylesheet to import.
+ *    ,
+ * 21 | / @use "../../../../../node_modules/bootstrap/scss/bootstrap" with (
+ * 22 | |     $primary: $primary,
+ * 23 | |     $secondary: $secondary,
+ * 24 | |     $success: $success,
+ * 25 | |     $info: $info,
+ * 26 | |     $warning: $warning,
+ * 27 | |     $danger: $danger,
+ * 28 | |     $light: $light,
+ * 29 | |     $dark: $dark
+ * 30 | | );
+ *    | '-^
+ *    '
+ *   scss\custom.scss 21:1  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a    \2577 \a 21 \2502  \250c  @use \"../../../../../node_modules/bootstrap/scss/bootstrap\" with (\a 22 \2502  \2502      $primary: $primary,\a 23 \2502  \2502      $secondary: $secondary,\a 24 \2502  \2502      $success: $success,\a 25 \2502  \2502      $info: $info,\a 26 \2502  \2502      $warning: $warning,\a 27 \2502  \2502      $danger: $danger,\a 28 \2502  \2502      $light: $light,\a 29 \2502  \2502      $dark: $dark\a 30 \2502  \2502  );\a    \2502  \2514 \2500 ^\a    \2575 \a   scss\\custom.scss 21:1  root stylesheet";
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+	<title>Practica 1</title>
+</head>
+
+<body>
+	<div class="container">
+		<form id="formulario">
+			<label for="Dificultad">¿Cual es la dificultad de programar?</label>
+			<input type="range" id="Dificultad" value="0">
+			<label for="Contraseña">Introduzca una contraseña: </label>
+			<input type="password" id="Contraseña">
+			<label for="Mes">¿En que fecha empezaste a programar?</label>
+			<input type="month" id="Mes">
+			<input type="number" max="31" min="1" value="1" id="dia">
+			<div id="div">
+				<label for="url">Introduce la url de la pagina con la que empezaste: </label>
+				<input type="url" placeholder="htpps://www.google.com" id="url">
+				<label for="restart">Para limpiar el formulario: </label>
+				<input type="reset" id="restart">
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

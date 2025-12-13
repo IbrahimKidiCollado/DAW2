@@ -1,7 +1,7 @@
 <?php
 require "lib/router.php";
 
-$uri_dir = "/entornos/crudAPI";
+$uri_dir = "/crudAPI";
 
 $router = new Router();
 
