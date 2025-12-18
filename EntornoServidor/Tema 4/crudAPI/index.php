@@ -13,5 +13,6 @@ $router->add("{$uri_dir}/api/skills/{id}", "SkillsController@apiSkills");
 $router->add("{$uri_dir}/api/departamentos", "DepartamentoController@apiDepartamento");
 $router->add("{$uri_dir}/api/departamentos/{id}", "DepartamentoController@apiDepartamento");
 
-$router->dispatch($_SERVER["REQUEST_URI"]);
+echo $uri_dir;
+//$router->dispatch($_SERVER["REQUEST_URI"]);
 ?>
