@@ -1,0 +1,256 @@
+@use "colores";
+@use "mixins";
+
+@keyframes shake {
+    0% { transform: rotate(0deg); } /* Empieza sin rotación */
+    25% { transform: rotate(2deg); } /* Rota ligeramente a la derecha */
+    50% { transform: rotate(-2deg); } /* Rota ligeramente a la izquierda */
+    75% { transform: rotate(2deg); } /* Vuelve a la derecha */
+    100% { transform: rotate(0deg); } /* Termina sin rotación */
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: colores.$blanc;
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+a:hover {
+	color: colores.$pr;
+	transition: 0.1s;
+}
+
+p {
+	color: colores.$oscuro;
+	text-align: left;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 30px;
+	color: colores.$az;
+}
+
+nav {
+	@include mixins.bloquesCentrados();
+	margin-bottom: 40px;
+	margin: 20px auto;
+
+	ul {
+		display: flex;
+		list-style: none;
+		justify-content: space-evenly;
+
+		a {
+			text-align: none;
+			color: colores.$az;
+			text-decoration: none;
+			font-weight: 600;
+		}
+	}
+}
+
+main {
+	@include mixins.bloquesCentrados();
+	margin-bottom: 30px;
+	flex-grow: 1;
+
+	div form {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+footer {
+	@include mixins.bloquesCentrados();
+	display: flex;
+	padding: 30px;
+	gap: 20px;
+	background-color: colores.$blanc;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	justify-content: space-evenly;
+	flex-flow: row wrap;
+	max-width: 100%;
+
+	h2 {
+		border-bottom: 3px solid colores.$az;
+		margin: 10px;
+		text-align: center;
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		input {
+			padding: 5px;
+			border-radius: 8px;
+			border: solid 1px colores.$az;
+		}
+	}
+
+	textarea {
+		border:solid 1px colores.$az;
+		resize: none;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+
+		li {
+			list-style: none;
+			text-decoration: none;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+	}
+
+	div {
+		display: flex;
+		gap: 20px;
+		justify-content: space-evenly;
+
+		img {width: 30px}
+	}
+}
+
+.ultimoElemento {margin-bottom: 70px}
+
+.perfiles-container {
+	display: flex;
+	flex-flow: row wrap;
+	max-width: 100%;
+	margin:0 auto;
+	justify-content: space-evenly;
+	gap: 50px;
+
+	div {
+		width: 200px;
+		height: 200px;
+		border-radius: 100px;
+		background-image: url(profile-picture_12225773.png);
+		background-size: cover;
+	}
+}
+
+.services-container {
+	display: flex;
+	margin: 0 auto; 
+	gap: 20px;
+	flex-flow: row wrap;
+	width: 90%;
+	max-width: 100%;
+	justify-content: space-evenly;
+
+	main {
+		width: 250px;
+		height: 300px;
+		max-width: 300px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&:hover {
+			transform: translateY(-5px);
+			transition: 0.3s;
+
+			p:first-child {animation: shake 0.4s ease-in-out infinite}
+		}
+	}
+
+	h3 {
+		color: colores.$az;
+		text-align: center;
+		margin-bottom: 20px;
+		font-size: 20px;
+	}
+
+	p:first-child {
+		font-size: 50px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+}
+
+.titulo-services {font-size: 40px}
+
+button {@include mixins.botonNaranja()}
+
+.contacto-container {
+	display: flex;
+	gap: 30px;
+	justify-content: space-evenly;
+	flex-flow: row wrap;
+	max-width: 100%;
+
+	div {width: 400px}
+
+	h3 {font-size: 25px}
+
+	form {
+		label {
+			margin: 20px 0 5px 0;
+			font-weight: 600;
+		}
+
+		textarea {
+			border-radius: 5px;
+			border: 1px solid colores.$az;
+			resize: vertical;
+			margin-bottom: 20px;
+		}
+
+		input {
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid colores.$az;
+		}
+	}
+
+	div {
+		div {
+			display: flex;
+			align-items: center;
+
+			&:first-child {
+				font-size: 24px;
+				width: 50px;
+			}
+
+			span {font-weight: bold}
+
+			div {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				align-items: start;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+.detalles-contacto {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+form input:last-child {
+	@include mixins.botonNaranja();
+	width: 100%;
+}

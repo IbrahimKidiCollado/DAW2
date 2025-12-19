@@ -1,0 +1,23 @@
+@use "colores";
+
+@mixin bloquesCentrados() {
+	border-radius: 8px;
+	width: 90%;
+	box-shadow: 0 4px 12px colores.$sombraAzul;
+	margin: 0 auto;
+	padding: 15px;
+}
+
+@mixin botonNaranja() {
+	margin-top: auto;
+	padding: 10px;
+	color: colores.$blanc;
+	font-weight:bold;
+	font-size: 16px;
+	background-color: colores.$pr;
+	border-radius: 5px;
+	border:none;
+	width: 150px;
+	box-shadow: 0 4px 12px colores.$sombraNaranja;
+	margin-bottom: 20px;
+}
